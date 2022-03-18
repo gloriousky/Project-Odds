@@ -19,7 +19,8 @@ import Utils from '../utility/util.js'
 export default {
   name: "header",
   components:{
-      Utils
+      Utils,
+      request
   },
   data() {
     return {
