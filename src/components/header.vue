@@ -19,8 +19,7 @@ import Utils from '../utility/util.js'
 export default {
   name: "header",
   components:{
-      Utils,
-      request
+      Utils
   },
   data() {
     return {
@@ -33,7 +32,7 @@ export default {
     };
   },
   mounted() {
-      console.log(Utils.isLink('https://www.google.com/'))
+      // console.log(Utils.isLink('https://www.google.com/'))
       
   },
   methods: {},

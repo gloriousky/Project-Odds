@@ -2,19 +2,27 @@
   <Header></Header>
 </template>
 <script>
-import Header from './components/header.vue'
+import Header from "./components/header.vue";
+import Api from "./api/request.js";
 export default {
   name: "App",
-  components:{
-    Header
+  components: {
+    Header,
+    Api,
   },
   data() {
-    return {
-
-    };
+    return {};
   },
-  mounted() {},
-  methods: {},
+  mounted() {
+    this.getList();
+  },
+  methods: {
+    getList() {
+      Api("get", "550").then((res) => {
+        console.log(res);
+      });
+    },
+  },
 };
 </script>
 <style>
