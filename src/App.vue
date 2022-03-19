@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     getList() {
-      Api("get", "550").then((res) => {
+      Api("get", "157336").then((res) => {
         console.log(res);
       });
     },

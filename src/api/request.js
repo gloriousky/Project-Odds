@@ -3,6 +3,7 @@ import axios from 'axios'
 // 創建axios實例
 const apiKey = '03bb944672cd4c83b34398364e89ac43'
 const baseUrl = 'https://api.themoviedb.org/3/movie/'
+const tokenUrl = 'https://api.themoviedb.org/3/authentication/token/new'
 
 export function Request( method, url, data = null, token) {
     let baseURL = `${baseUrl}${url}?api_key=${apiKey}`;
@@ -18,5 +19,21 @@ export function Request( method, url, data = null, token) {
   
     return axios(requestConfig);
   }
+
+  export function getToken( method, url, data = null, token) {
+    let baseURL = `${tokenUrl}?api_key=${apiKey}`;
   
-  export default Request;
+    const requestConfig = {
+      method,
+      url: baseURL,
+      data,
+      headers: {
+        Authorization: token,
+      },
+    };
+  
+    return axios(requestConfig);
+  }
+
+  
+  export default Request ; getToken;
