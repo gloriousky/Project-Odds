@@ -1,5 +1,11 @@
 <template>
   <Header></Header>
+      <vue-final-modal v-model="showModal"
+       content-class="relative flex flex-col max-h-full mx-4 p-4 border dark:border-gray-800 rounded bg-white dark:bg-gray-900"
+      >
+      Modal Content Here
+    </vue-final-modal>
+    <button @click="showModal = true">Open Modal</button>
 </template>
 <script>
 import Header from "./components/header.vue";
@@ -11,7 +17,9 @@ export default {
     Api,
   },
   data() {
-    return {};
+    return {
+       showModal: false
+    };
   },
   mounted() {
     this.getList();
