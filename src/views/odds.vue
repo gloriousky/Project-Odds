@@ -12,7 +12,7 @@
       </thead>
       <tbody v-for="item in oddsDataList" :key="item.id">
         <tr>
-          <td>{{ new Date(item.commence_time).getTime() }}</td>
+          <td>{{ this.timeFormat(new Date(item.commence_time).getTime()) }}</td>
           <td>
             <div>
               {{ item.away_team }}
@@ -24,7 +24,7 @@
           <td></td>
           <td class="text-sm text-gray-600">
             <div>
-                O {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
+              O {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
             </div>
             <div>
               {{ item.bookmakers[3]["markets"][1]["outcomes"][1]["point"] }}
@@ -10339,6 +10339,7 @@ export default {
   },
   mounted() {
     console.log(this.oddsDataList);
+    console.log();
     // this.getList();
   },
   methods: {
@@ -10355,6 +10356,9 @@ export default {
         .catch((err) => {
           console.error(err);
         });
+    },
+    timeFormat(timeStamp) {
+      return Utils.dateFormat(timeStamp, "-", true);
     },
   },
 };
