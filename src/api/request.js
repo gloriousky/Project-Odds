@@ -1,39 +1,21 @@
 import axios from 'axios'
 
 // 創建axios實例
-const apiKey = '03bb944672cd4c83b34398364e89ac43'
-const baseUrl = 'https://api.themoviedb.org/3/movie/'
-const tokenUrl = 'https://api.themoviedb.org/3/authentication/token/new'
+const apiKey = '4046a782506d8978af87561bd2d15c64'
+//地區 uk | us | eu | au. Multiple can be specified if comma delimited
+const regions = 'us' 
+ // 玩法 h2h | spreads | totals. Multiple can be specified if comma delimited
+const markets = 'spreads'
+// 歐式&美式賠率 decimal | american
+const oddsFormat = 'decimal' 
+// 時間格式 iso | unix
+const dateFormat = 'iso' 
+const baseUrl = 'https://api.the-odds-api.com/v4/sports'
 
-export function Request( method, url, data = null, token) {
-    let baseURL = `${baseUrl}${url}?api_key=${apiKey}`;
-  
-    const requestConfig = {
-      method,
-      url: baseURL,
-      data,
-      headers: {
-        Authorization: token,
-      },
-    };
-  
-    return axios(requestConfig);
-  }
 
-  export function getToken( method, url, data = null, token) {
-    let baseURL = `${tokenUrl}?api_key=${apiKey}`;
-  
-    const requestConfig = {
-      method,
-      url: baseURL,
-      data,
-      headers: {
-        Authorization: token,
-      },
-    };
-  
-    return axios(requestConfig);
-  }
 
+  const Request = (url, config) => {
+    return axios.get(`${baseUrl}${url}?apiKey=${apiKey}&regions=${regions}&dateFormat=${dateFormat}`, config);
+  };
   
-  export default Request ; getToken;
+  export default Request
