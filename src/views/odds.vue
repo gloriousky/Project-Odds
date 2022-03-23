@@ -23,7 +23,7 @@
                   src="https://img.covers.com/covers/data/svg_logos/nba/atl.svg"
                   alt=""
                 />
-                <span>
+                <span class="hover:bg-orange-400 hover:text-white hover:duration-200">
                   {{ item.away_team }}
                 </span>
               </div>
@@ -33,18 +33,22 @@
                   src="https://img.covers.com/covers/data/svg_logos/nba/det.svg"
                   alt=""
                 />
-                <span>
+                <span class="hover:bg-orange-400 hover:text-white hover:duration-200">
                   {{ item.home_team }}
                 </span>
               </div>
             </td>
-            <td></td>
-            <td class="px-2 text-sm text-gray-600">
+            <td class="px-2">
+                <div @click="getOddsLine()" class="border border-orange-500 py-1 px-2 rounded-md cursor-pointer hover:bg-orange-600 hover:text-white hover:duration-100">
+                    Line
+                </div>
+            </td>
+            <td class="text-sm text-gray-600 flex flex-col items-center">
               <div>
                 O {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
               </div>
               <div>
-                {{ item.bookmakers[3]["markets"][1]["outcomes"][1]["point"] }}
+                {{ (item.bookmakers[3]["markets"][1]["outcomes"][1]["point"]).toFixed(1) }}
               </div>
             </td>
           </tr>
@@ -10374,6 +10378,9 @@ export default {
         .catch((err) => {
           console.error(err);
         });
+    },
+    getOddsLine() {
+        console.log('getOddsLine')
     },
     timeFormat(timeStamp) {
       return Utils.dateFormat(timeStamp, "-", true);
