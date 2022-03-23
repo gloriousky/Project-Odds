@@ -1,6 +1,10 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import Home from '../views/home.vue'
+import Odds from '../views/odds.vue'
+
 const routes = [
-    { path: "/home", redirect: "/" }    
+    { path: "/",component:Home },
+    {path: '/odds',component:Odds} 
   ];
 
 export const router = createRouter({
