@@ -4,65 +4,83 @@
     <table class="table">
       <thead class="h-10 border-b">
         <tr>
-          <th>Time</th>
-          <th>Game</th>
-          <th></th>
-          <th>Open</th>
+          <th class="px-2">Time</th>
+          <th class="px-2">Game</th>
+          <th class="px-2"></th>
+          <th class="px-2">Open</th>
         </tr>
       </thead>
-      <tbody v-for="item in oddsDataList" :key="item.id">
-        <tr>
-          <td>{{ this.timeFormat(new Date(item.commence_time).getTime()) }}</td>
-          <td>
-            <div>
-              {{ item.away_team }}
-            </div>
-            <div>
-              {{ item.home_team }}
-            </div>
-          </td>
-          <td></td>
-          <td class="text-sm text-gray-600">
-            <div>
-              O {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
-            </div>
-            <div>
-              {{ item.bookmakers[3]["markets"][1]["outcomes"][1]["point"] }}
-            </div>
-          </td>
-        </tr>
+      <tbody>
+        <template v-for="item in oddsDataList" :key="item.id">
+          <tr class="border">
+            <td class="px-2">
+              {{ this.timeFormat(new Date(item.commence_time).getTime()) }}
+            </td>
+            <td class="px-2 flex flex-col">
+              <div class="flex my-2">
+                <img
+                  class="w-6 h-6 mr-2"
+                  src="https://img.covers.com/covers/data/svg_logos/nba/atl.svg"
+                  alt=""
+                />
+                <span>
+                  {{ item.away_team }}
+                </span>
+              </div>
+              <div class="flex my-2">
+                <img
+                  class="w-6 h-6 mr-2"
+                  src="https://img.covers.com/covers/data/svg_logos/nba/det.svg"
+                  alt=""
+                />
+                <span>
+                  {{ item.home_team }}
+                </span>
+              </div>
+            </td>
+            <td></td>
+            <td class="px-2 text-sm text-gray-600">
+              <div>
+                O {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
+              </div>
+              <div>
+                {{ item.bookmakers[3]["markets"][1]["outcomes"][1]["point"] }}
+              </div>
+            </td>
+          </tr>
+        </template>
       </tbody>
     </table>
 
     <table>
       <thead class="flex border-b h-10">
-        <tr class="px-2">
+        <tr class="px-2 mx-5">
           <td>
             <a href="https://www.bet365.com/#/HO/">
               <img class="w-28 h-8" src="/bet365.svg" alt="" />
             </a>
           </td>
         </tr>
-        <tr class="px-2">
+        <tr class="px-2 mx-5">
           <td>
             <img class="w-28 h-8" src="/betway.svg" alt="" />
           </td>
         </tr>
-        <tr class="px-2">
+        <tr class="px-2 mx-5">
           <td>
             <a href="https://sports.williamhill.com/betting/en-gb">
               <img class="w-28 h-8" src="/williamhill.svg" alt="" />
             </a>
           </td>
         </tr>
-        <tr class="px-2">
+        <tr class="px-2 mx-5">
           <td>
             <a href="https://www.888sport.com/spt/100percent.htm">
               <img class="w-10 h-8" src="/888sport.svg" alt="" />
             </a>
           </td>
         </tr>
-        <tr class="px-2">
+        <tr class="px-2 mx-5">
           <td>
             <a href="https://www.betvictor.com/">
               <img class="w-28 h-8" src="/betvictor.svg" alt="" />
@@ -70,7 +88,7 @@
           </td>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody class="border-b"></tbody>
     </table>
   </div>
 </template>
