@@ -39,7 +39,7 @@
               </div>
             </td>
             <td class="px-2">
-                <div @click="getOddsLine()" class="border border-orange-500 py-1 px-2 rounded-md cursor-pointer hover:bg-orange-600 hover:text-white hover:duration-100">
+                <div @click="getOddsLine()" class="primary-btn">
                     Line
                 </div>
             </td>
@@ -10388,3 +10388,8 @@ export default {
   },
 };
 </script>
+<style lang="postcss">
+    .primary-btn{
+        @apply border border-orange-500 py-1 px-2 rounded-md cursor-pointer hover:bg-orange-600 hover:text-white hover:duration-100
+    }
+</style>
