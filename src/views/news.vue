@@ -1,10 +1,10 @@
 <template>
     <div class="absolute top-12">
-        首頁
+        News
     </div>
 </template>
 <script>
 export default {
-    name:'home'
+    name:'news'
 }
 </script>

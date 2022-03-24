@@ -1,4 +1,5 @@
 <template>
+<div class="absolute top-12">
   <h1 class="text-2xl font-extrabold">NBA Odds & Betting Lines</h1>
   <div class="flex box-border">
     <table class="table w-3/4">
@@ -117,6 +118,7 @@
       </tbody>
     </table>
   </div>
+</div>
 </template>
 <script>
 import Utils from "../utility/util.js";

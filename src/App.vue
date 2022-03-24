@@ -1,13 +1,16 @@
 <template>
-  <div class="container mx-auto box-border">
-    <router-link to="/">Go to Home</router-link>
-    <router-link to="/odds">Go to odds</router-link>
+  <div class="container w-full box-border">
+    <Header></Header>
     <router-view></router-view>
   </div>
 </template>
 <script>
+import Header from './components/header.vue'
 export default {
   name: "App",
+  components: {
+    Header
+  },
   data() {
     return {};
   },

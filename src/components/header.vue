@@ -1,17 +1,15 @@
 <template>
-  <nav class="flex justify-between bg-gray-300 p-2">
-    <div>
-      <img src="" alt="" />
-      <h1>挖！影</h1>
-    </div>
-    <div class="border">
-        <input type="text" placeholder="搜尋劇名 / 演員">
-    </div>
-    <ul class="flex justify-around text-white w-1/2">
-      <li class="mr-3" v-for="(item, index) in navBarList" :key="index">
-        <a :href="item.url"> {{ item.name }}</a>
+  <nav class="flex justify-between items-center bg-sky-700 p-2 w-full h-12 fixed z-10 top-0">
+    <a href="./">
+      <img src="/covers-full-white-text.svg" alt="">
+    </a>  
+    <ul class="flex justify-around text-gray-400">
+      <li class="mx-6 hover:text-white" v-for="(item, index) in navBarList" :key="index">
+        <router-link :to="item.url">{{ item.name }}</router-link>
       </li>
     </ul>
+    <span></span>
+    <span></span>
   </nav>
 </template>
 <script>
@@ -24,16 +22,13 @@ export default {
   data() {
     return {
       navBarList: [
-        { name: "電影", url: "./movie" },
-        { name: "戲劇", url: "./drama" },
-        { name: "主題館", url: "./theme" },
-        { name: "我的片單", url: "list" },
+        { name: "Home", url: "./" },
+        { name: "Odds", url: "./odds" },
+        { name: "News", url: "./news" },
       ],
     };
   },
-  mounted() {
-      // console.log(Utils.isLink('https://www.google.com/'))
-      
+  mounted() {    
   },
   methods: {},
 };
