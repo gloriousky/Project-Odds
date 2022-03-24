@@ -36,16 +36,6 @@ const Utils = {
        return Utils.isStr(what) || Utils.isNum(what) || Utils.isBool(what) || Utils.isFn(what);
     },
  
-    // // from : https://github.com/lodash/lodash/blob/master/.internal/isIndex.js
-    // isIndex: (what, length) => {
-    //     const type = typeof what;
-    //     length = length === undefined ? MAX_SAFE_INTEGER : length;
-    //     return !!length && 
-    //     (type === 'number' || 
-    //         (type !== 'symbol' && reIsUint.test(what))) &&
-    //         (what > -1 && what % 1 === 0 && what < length) 
-    // },
- 
     isEmpty: what => {
        if (Utils.isArr(what)) {
           var i = 0,
@@ -181,7 +171,7 @@ const Utils = {
           year = date.getFullYear(),
           month = date.getMonth() + 1,
           day = date.getDate(),
-          result = year + separator + (month > 9 ? month : '0' + month) + separator + (day > 9 ? day : '0' + day);
+          result = (month > 9 ? month : '0' + month) + separator + (day > 9 ? day : '0' + day);
  
        if (!isDateTime) {
           return result;

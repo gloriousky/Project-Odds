@@ -8,7 +8,7 @@ const regions = 'us'
 const markets = 'spreads'
 // 歐式&美式賠率 decimal | american
 const oddsFormat = 'decimal' 
-// 時間格式 iso | unix
+// 時間格式 iso | unix timestamp
 const dateFormat = 'iso' 
 const baseUrl = 'https://api.the-odds-api.com/v4/sports'
 

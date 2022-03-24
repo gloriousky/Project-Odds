@@ -92,7 +92,15 @@
           </td>
         </tr>
       </thead>
-      <tbody class="border-b"></tbody>
+      <tbody class="border-b">
+          <template v-for="item in oddsDataList" :key="item.id">
+              <tr class="border">
+                  <td>
+                      {{ item.bookmakers[0]['markets'][2]['outcomes'][0]['point']}}
+                  </td>
+              </tr>
+          </template>
+      </tbody>
     </table>
   </div>
 </template>
@@ -10361,7 +10369,6 @@ export default {
   },
   mounted() {
     console.log(this.oddsDataList);
-    console.log();
     // this.getList();
   },
   methods: {
