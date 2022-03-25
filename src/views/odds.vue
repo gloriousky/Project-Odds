@@ -4,9 +4,9 @@
       <h1 class="text-4xl text-center font-extrabold my-2">
         NBA Odds & Betting Lines
       </h1>
-      <div class="cursor-pointer text-center">
-          <span class="mr-3">賠率轉換:</span>
-        <select name="" id="" v-model="this.selectValue">
+      <div class="text-center">
+        <span class="mr-3">賠率轉換:</span>
+        <select class="border-2 rounded-md cursor-pointer p-2" v-model="this.selectValue">
             <option value="Decimal">Decimal</option>
             <option value="American">American</option>
         </select>
@@ -19,7 +19,7 @@
             <th>Time</th>
             <th>Game</th>
             <th></th>
-            <th>Open</th>
+            <th class="hidden lg:block">Open</th>
           </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@
                 <div class="flex my-2">
                   <img
                     class="w-6 h-6 mr-2"
-                    src="https://img.covers.com/covers/data/svg_logos/nba/atl.svg"
+                    :src="/NBA/ + item.away_team + this.awayImgUrl"
                     alt=""
                   />
                   <span
@@ -46,7 +46,7 @@
                 <div class="flex my-2">
                   <img
                     class="w-6 h-6 mr-2"
-                    src="https://img.covers.com/covers/data/svg_logos/nba/det.svg"
+                    :src="/NBA/ + item.home_team + this.awayImgUrl"
                     alt=""
                   />
                   <span
@@ -61,7 +61,7 @@
               <td class="px-2">
                 <div @click="getOddsLine()" class="primary-btn">Line</div>
               </td>
-              <td class="text-sm text-gray-600 flex flex-col items-center">
+              <td class="hidden lg:block text-sm text-gray-600 flex flex-col items-center">
                 <div>
                   O
                   {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
@@ -82,25 +82,25 @@
       <table class="w-2/3">
         <thead class="h-10 border-b">
           <tr>
-            <th class="">
+            <th>
               <a href="https://www.bet365.com/#/HO/">
                 <img class="w-28 h-8" src="/bet365.svg" alt="" />
               </a>
             </th>
-            <th class="">
+            <th>
               <img class="w-28 h-8" src="/betway.svg" alt="" />
             </th>
-            <th class="">
+            <th>
               <a href="https://sports.williamhill.com/betting/en-gb">
                 <img class="w-28 h-8" src="/williamhill.svg" alt="" />
               </a>
             </th>
-            <th class="">
+            <th>
               <a href="https://www.pinnacle.com/en/landing/sports-general">
                 <img class="w-28 h-8" src="/pinnacle.svg" alt="" />
               </a>
             </th>
-            <th class="">
+            <th>
               <a href="https://www.betvictor.com/">
                 <img class="w-28 h-8" src="/betvictor.svg" alt="" />
               </a>
@@ -109,12 +109,15 @@
         </thead>
         <tbody class="border-b">
           <template v-for="item in oddsDataList" :key="item.id">
-            <tr class="border">
+            <tr class="border text-sm">
               <td>
                 <div>
                   O
                   {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
+                  <span class="text-gray-400">
+
                   {{ betRateConvert(item.bookmakers[0]["markets"][2]["outcomes"][1]["price"]) }}
+                  </span>
                 </div>
                 <div>
                   {{ item.bookmakers[0]["markets"][1]["outcomes"][1]["point"] }}
@@ -161,6 +164,7 @@ export default {
   },
   data() {
     return {
+      awayImgUrl: ".svg",
       showModal: false,
       selectValue:'Decimal',
       oddsDataList: [
@@ -10445,7 +10449,6 @@ export default {
       return Utils.dateFormat(timeStamp, "-", true);
     },
     betRateConvert(value){
-        console.log('betRateConvert')
         switch (this.selectValue){
             // 美式賠率
             case 'American':
