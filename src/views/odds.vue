@@ -1,8 +1,17 @@
 <template>
   <div class="absolute top-12">
-    <h1 class="text-4xl text-center font-extrabold my-2">
-      NBA Odds & Betting Lines
-    </h1>
+    <div>
+      <h1 class="text-4xl text-center font-extrabold my-2">
+        NBA Odds & Betting Lines
+      </h1>
+      <div class="cursor-pointer text-center">
+          <span class="mr-3">賠率轉換:</span>
+        <select name="" id="" v-model="this.selectValue">
+            <option value="Decimal">Decimal</option>
+            <option value="American">American</option>
+        </select>
+      </div>
+    </div>
     <div class="flex box-border w-screen p-6">
       <table class="w-1/3">
         <thead class="h-10 border-b">
@@ -105,55 +114,33 @@
                 <div>
                   O
                   {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
-                  {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["price"] }}
+                  {{ betRateConvert(item.bookmakers[0]["markets"][2]["outcomes"][1]["price"]) }}
                 </div>
                 <div>
                   {{ item.bookmakers[0]["markets"][1]["outcomes"][1]["point"] }}
-                  {{ item.bookmakers[0]["markets"][1]["outcomes"][1]["price"] }}
+                  {{ betRateConvert(item.bookmakers[0]["markets"][1]["outcomes"][1]["price"]) }}
                 </div>
               </td>
               <td>
                 <div>
                   O
                   {{ item.bookmakers[1]["markets"][2]["outcomes"][0]["point"] }}
-                  {{ item.bookmakers[1]["markets"][2]["outcomes"][0]["price"] }}
+                  {{ betRateConvert(item.bookmakers[1]["markets"][2]["outcomes"][1]["price"]) }}
                 </div>
                 <div>
                   {{ item.bookmakers[1]["markets"][1]["outcomes"][1]["point"] }}
-                  {{ item.bookmakers[1]["markets"][1]["outcomes"][1]["price"] }}
+                  {{ betRateConvert(item.bookmakers[1]["markets"][1]["outcomes"][1]["price"]) }}
                 </div>
               </td>
               <td>
                 <div>
                   O
                   {{ item.bookmakers[2]["markets"][2]["outcomes"][0]["point"] }}
-                  {{ item.bookmakers[2]["markets"][2]["outcomes"][0]["price"] }}
+                  {{ betRateConvert(item.bookmakers[2]["markets"][2]["outcomes"][1]["price"]) }}
                 </div>
                 <div>
                   {{ item.bookmakers[2]["markets"][1]["outcomes"][1]["point"] }}
-                  {{ item.bookmakers[2]["markets"][1]["outcomes"][1]["price"] }}
-                </div>
-              </td>
-              <td>
-                <div>
-                  O
-                  {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
-                  {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["price"] }}
-                </div>
-                <div>
-                  {{ item.bookmakers[3]["markets"][1]["outcomes"][1]["point"] }}
-                  {{ item.bookmakers[3]["markets"][1]["outcomes"][1]["price"] }}
-                </div>
-              </td>
-              <td>
-                <div>
-                  O
-                  {{ item.bookmakers[4]["markets"][2]["outcomes"][0]["point"] }}
-                  {{ item.bookmakers[4]["markets"][2]["outcomes"][0]["price"] }}
-                </div>
-                <div>
-                  {{ item.bookmakers[4]["markets"][1]["outcomes"][1]["point"] }}
-                  {{ item.bookmakers[4]["markets"][1]["outcomes"][1]["price"] }}
+                  {{ betRateConvert(item.bookmakers[2]["markets"][1]["outcomes"][1]["price"]) }}
                 </div>
               </td>
             </tr>
@@ -175,6 +162,7 @@ export default {
   data() {
     return {
       showModal: false,
+      selectValue:'Decimal',
       oddsDataList: [
         {
           id: "b098a5956e3da40312b9a0ff4377005b",
@@ -10426,6 +10414,11 @@ export default {
       ],
     };
   },
+  watch:{
+      selectValue(val){
+        this.betRateConvert()
+      }
+  },
   mounted() {
     console.log(this.oddsDataList);
     // this.getList();
@@ -10451,6 +10444,22 @@ export default {
     timeFormat(timeStamp) {
       return Utils.dateFormat(timeStamp, "-", true);
     },
+    betRateConvert(value){
+        console.log('betRateConvert')
+        switch (this.selectValue){
+            // 美式賠率
+            case 'American':
+                if (value < 2) {
+                    return -(100 / Math.abs(value- 1 )).toFixed(0)
+                }else if (value >= 2) {
+                    return '+' + (Math.abs( value -1 ) * 100).toFixed(0)
+                }
+            break;
+            case 'Decimal':
+                return value
+            default:
+        }
+    }
   },
 };
 </script>
