@@ -1,10 +1,11 @@
 <template>
     <div class="absolute top-12">
-        News
+        <button @click="getList">{{msg}}</button>
     </div>
 </template>
-<script>
-export default {
-    name:'news'
-}
+<script setup>
+    const msg = 'News'
+    function getList () {
+        console.log('getList')
+    }
 </script>

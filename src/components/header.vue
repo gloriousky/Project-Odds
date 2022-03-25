@@ -13,12 +13,8 @@
   </nav>
 </template>
 <script>
-import Utils from '../utility/util.js'
 export default {
   name: "header",
-  components:{
-      Utils
-  },
   data() {
     return {
       navBarList: [

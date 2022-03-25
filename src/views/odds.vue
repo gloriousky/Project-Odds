@@ -1,8 +1,8 @@
 <template>
-<div class="absolute top-12">
-  <h1 class="text-2xl font-extrabold">NBA Odds & Betting Lines</h1>
-  <div class="flex box-border">
-    <table class="table w-3/4">
+<div class="absolute top-12 mx-auto">
+  <h1 class="text-4xl font-extrabold">NBA Odds & Betting Lines</h1>
+  <div class="flex box-border w-screen">
+    <table class="w-1/2">
       <thead class="h-10 border-b">
         <tr>
           <th>Time</th>
@@ -68,27 +68,27 @@
     </table>
 
     <table class="w-full">
-      <thead class="flex border-b h-10">
+      <thead class="h-10 border-b">
         <tr>
-          <th class="mx-4">
+          <th class="">
             <a href="https://www.bet365.com/#/HO/">
               <img class="w-28 h-8" src="/bet365.svg" alt="" />
             </a>
           </th>
-          <th class="mx-4">
+          <th class="">
             <img class="w-28 h-8" src="/betway.svg" alt="" />
           </th>
-          <th class="mx-4">
+          <th class="">
             <a href="https://sports.williamhill.com/betting/en-gb">
               <img class="w-28 h-8" src="/williamhill.svg" alt="" />
             </a>
           </th>
-          <th class="mx-4">
-            <a href="https://www.888sport.com/spt/100percent.htm">
-              <img class="w-10 h-8" src="/888sport.svg" alt="" />
+          <th class="">
+            <a href="https://www.pinnacle.com/en/landing/sports-general">
+              <img class="w-28 h-8" src="/pinnacle.svg" alt="" />
             </a>
           </th>
-          <th class="mx-4">
+          <th class="">
             <a href="https://www.betvictor.com/">
               <img class="w-28 h-8" src="/betvictor.svg" alt="" />
             </a>
@@ -97,7 +97,7 @@
       </thead>
       <tbody class="border-b">
         <template v-for="item in oddsDataList" :key="item.id">
-          <tr>
+          <tr class="border">
             <td>
               {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
             </td>
