@@ -1,124 +1,167 @@
 <template>
-<div class="absolute top-12 mx-auto">
-  <h1 class="text-4xl font-extrabold">NBA Odds & Betting Lines</h1>
-  <div class="flex box-border w-screen">
-    <table class="w-1/2">
-      <thead class="h-10 border-b">
-        <tr>
-          <th>Time</th>
-          <th>Game</th>
-          <th></th>
-          <th>Open</th>
-        </tr>
-      </thead>
-      <tbody>
-        <template v-for="item in oddsDataList" :key="item.id">
-          <tr class="border">
-            <td class="px-2">
-              {{ this.timeFormat(new Date(item.commence_time).getTime()) }}
-            </td>
-            <td class="px-2 flex flex-col">
-              <div class="flex my-2">
-                <img
-                  class="w-6 h-6 mr-2"
-                  src="https://img.covers.com/covers/data/svg_logos/nba/atl.svg"
-                  alt=""
-                />
-                <span
-                  class="
-                    hover:bg-orange-400 hover:text-white hover:duration-200
-                  "
-                >
-                  {{ item.away_team }}
-                </span>
-              </div>
-              <div class="flex my-2">
-                <img
-                  class="w-6 h-6 mr-2"
-                  src="https://img.covers.com/covers/data/svg_logos/nba/det.svg"
-                  alt=""
-                />
-                <span
-                  class="
-                    hover:bg-orange-400 hover:text-white hover:duration-200
-                  "
-                >
-                  {{ item.home_team }}
-                </span>
-              </div>
-            </td>
-            <td class="px-2">
-              <div @click="getOddsLine()" class="primary-btn">Line</div>
-            </td>
-            <td class="text-sm text-gray-600 flex flex-col items-center">
-              <div>
-                O {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
-              </div>
-              <div>
-                {{
-                  item.bookmakers[3]["markets"][1]["outcomes"][1][
-                    "point"
-                  ].toFixed(1)
-                }}
-              </div>
-            </td>
+  <div class="absolute top-12">
+    <h1 class="text-4xl text-center font-extrabold my-2">
+      NBA Odds & Betting Lines
+    </h1>
+    <div class="flex box-border w-screen p-6">
+      <table class="w-1/3">
+        <thead class="h-10 border-b">
+          <tr>
+            <th>Time</th>
+            <th>Game</th>
+            <th></th>
+            <th>Open</th>
           </tr>
-        </template>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <template v-for="item in oddsDataList" :key="item.id">
+            <tr class="border">
+              <td class="px-2">
+                {{ this.timeFormat(new Date(item.commence_time).getTime()) }}
+              </td>
+              <td class="px-2 flex flex-col">
+                <div class="flex my-2">
+                  <img
+                    class="w-6 h-6 mr-2"
+                    src="https://img.covers.com/covers/data/svg_logos/nba/atl.svg"
+                    alt=""
+                  />
+                  <span
+                    class="
+                      hover:bg-orange-400 hover:text-white hover:duration-200
+                    "
+                  >
+                    {{ item.away_team }}
+                  </span>
+                </div>
+                <div class="flex my-2">
+                  <img
+                    class="w-6 h-6 mr-2"
+                    src="https://img.covers.com/covers/data/svg_logos/nba/det.svg"
+                    alt=""
+                  />
+                  <span
+                    class="
+                      hover:bg-orange-400 hover:text-white hover:duration-200
+                    "
+                  >
+                    {{ item.home_team }}
+                  </span>
+                </div>
+              </td>
+              <td class="px-2">
+                <div @click="getOddsLine()" class="primary-btn">Line</div>
+              </td>
+              <td class="text-sm text-gray-600 flex flex-col items-center">
+                <div>
+                  O
+                  {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
+                </div>
+                <div>
+                  {{
+                    item.bookmakers[3]["markets"][1]["outcomes"][1][
+                      "point"
+                    ].toFixed(1)
+                  }}
+                </div>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
 
-    <table class="w-full">
-      <thead class="h-10 border-b">
-        <tr>
-          <th class="">
-            <a href="https://www.bet365.com/#/HO/">
-              <img class="w-28 h-8" src="/bet365.svg" alt="" />
-            </a>
-          </th>
-          <th class="">
-            <img class="w-28 h-8" src="/betway.svg" alt="" />
-          </th>
-          <th class="">
-            <a href="https://sports.williamhill.com/betting/en-gb">
-              <img class="w-28 h-8" src="/williamhill.svg" alt="" />
-            </a>
-          </th>
-          <th class="">
-            <a href="https://www.pinnacle.com/en/landing/sports-general">
-              <img class="w-28 h-8" src="/pinnacle.svg" alt="" />
-            </a>
-          </th>
-          <th class="">
-            <a href="https://www.betvictor.com/">
-              <img class="w-28 h-8" src="/betvictor.svg" alt="" />
-            </a>
-          </th>
-        </tr>        
-      </thead>
-      <tbody class="border-b">
-        <template v-for="item in oddsDataList" :key="item.id">
-          <tr class="border">
-            <td>
-              {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
-            </td>
-            <td>
-              {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
-            </td>
-            <td>
-              {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
-            </td>
-            <td>
-              {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
-            </td>
-            <td>
-              {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
-            </td>
+      <table class="w-2/3">
+        <thead class="h-10 border-b">
+          <tr>
+            <th class="">
+              <a href="https://www.bet365.com/#/HO/">
+                <img class="w-28 h-8" src="/bet365.svg" alt="" />
+              </a>
+            </th>
+            <th class="">
+              <img class="w-28 h-8" src="/betway.svg" alt="" />
+            </th>
+            <th class="">
+              <a href="https://sports.williamhill.com/betting/en-gb">
+                <img class="w-28 h-8" src="/williamhill.svg" alt="" />
+              </a>
+            </th>
+            <th class="">
+              <a href="https://www.pinnacle.com/en/landing/sports-general">
+                <img class="w-28 h-8" src="/pinnacle.svg" alt="" />
+              </a>
+            </th>
+            <th class="">
+              <a href="https://www.betvictor.com/">
+                <img class="w-28 h-8" src="/betvictor.svg" alt="" />
+              </a>
+            </th>
           </tr>
-        </template>
-      </tbody>
-    </table>
+        </thead>
+        <tbody class="border-b">
+          <template v-for="item in oddsDataList" :key="item.id">
+            <tr class="border">
+              <td>
+                <div>
+                  O
+                  {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
+                  {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["price"] }}
+                </div>
+                <div>
+                  {{ item.bookmakers[0]["markets"][1]["outcomes"][1]["point"] }}
+                  {{ item.bookmakers[0]["markets"][1]["outcomes"][1]["price"] }}
+                </div>
+              </td>
+              <td>
+                <div>
+                  O
+                  {{ item.bookmakers[1]["markets"][2]["outcomes"][0]["point"] }}
+                  {{ item.bookmakers[1]["markets"][2]["outcomes"][0]["price"] }}
+                </div>
+                <div>
+                  {{ item.bookmakers[1]["markets"][1]["outcomes"][1]["point"] }}
+                  {{ item.bookmakers[1]["markets"][1]["outcomes"][1]["price"] }}
+                </div>
+              </td>
+              <td>
+                <div>
+                  O
+                  {{ item.bookmakers[2]["markets"][2]["outcomes"][0]["point"] }}
+                  {{ item.bookmakers[2]["markets"][2]["outcomes"][0]["price"] }}
+                </div>
+                <div>
+                  {{ item.bookmakers[2]["markets"][1]["outcomes"][1]["point"] }}
+                  {{ item.bookmakers[2]["markets"][1]["outcomes"][1]["price"] }}
+                </div>
+              </td>
+              <td>
+                <div>
+                  O
+                  {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["point"] }}
+                  {{ item.bookmakers[3]["markets"][2]["outcomes"][0]["price"] }}
+                </div>
+                <div>
+                  {{ item.bookmakers[3]["markets"][1]["outcomes"][1]["point"] }}
+                  {{ item.bookmakers[3]["markets"][1]["outcomes"][1]["price"] }}
+                </div>
+              </td>
+              <td>
+                <div>
+                  O
+                  {{ item.bookmakers[4]["markets"][2]["outcomes"][0]["point"] }}
+                  {{ item.bookmakers[4]["markets"][2]["outcomes"][0]["price"] }}
+                </div>
+                <div>
+                  {{ item.bookmakers[4]["markets"][1]["outcomes"][1]["point"] }}
+                  {{ item.bookmakers[4]["markets"][1]["outcomes"][1]["price"] }}
+                </div>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 </template>
 <script>
 import Utils from "../utility/util.js";
