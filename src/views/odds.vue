@@ -17,22 +17,22 @@
     </div>
     <div class="flex box-border w-screen p-6">
       <table class="w-1/3">
-        <thead class="h-10 border-b">
+        <thead class="h-10 bg-stone-200 border-b">
           <tr>
             <th>Time</th>
             <th>Game</th>
             <th></th>
-            <th class="hidden lg:block">Open</th>
+            <th class="hidden lg:table-cell">Open</th>
           </tr>
         </thead>
         <tbody>
           <template v-for="item in oddsDataList" :key="item.id">
             <tr class="border">
-              <td class="px-2">
+              <td class="px-5">
                 {{ timeFormat(new Date(item.commence_time).getTime()) }}
               </td>
               <td class="px-2 flex flex-col">
-                <div class="flex my-2">
+                <div class="flex my-2 ml-3">
                   <img
                     class="w-6 h-6 mr-2"
                     :src="/NBA/ + item.away_team + this.ImgUrl"
@@ -46,7 +46,7 @@
                     {{ item.away_team }}
                   </span>
                 </div>
-                <div class="flex my-2">
+                <div class="flex my-2 ml-3">
                   <img
                     class="w-6 h-6 mr-2"
                     :src="/NBA/ + item.home_team + this.ImgUrl"
@@ -91,7 +91,7 @@
       </table>
 
       <table class="w-2/3">
-        <thead class="h-10 border-b">
+        <thead class="h-10 bg-stone-200 border-b">
           <tr>
             <th>
               <a href="https://www.bet365.com/#/HO/">
@@ -122,9 +122,14 @@
           <template v-for="item in oddsDataList" :key="item.id">
             <tr class="border text-sm">
               <td>
-                <div>
-                  O
-                  {{ item.bookmakers[0]["markets"][2]["outcomes"][0]["point"] }}
+                <div class="flex justify-center">
+                  <span class="mr-2">
+                    O
+                    {{
+                      item.bookmakers[0]["markets"][2]["outcomes"][0]["point"]
+                    }}
+                  </span>
+
                   <span class="text-gray-400">
                     {{
                       betRateConvert(
@@ -133,8 +138,12 @@
                     }}
                   </span>
                 </div>
-                <div>
-                  {{ item.bookmakers[0]["markets"][1]["outcomes"][1]["point"] }}
+                <div class="flex justify-center">
+                  <span class="mr-2">
+                    {{
+                      item.bookmakers[0]["markets"][1]["outcomes"][1]["point"]
+                    }}
+                  </span>
                   <span class="text-gray-400">
                     {{
                       betRateConvert(

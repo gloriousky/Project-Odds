@@ -18,6 +18,7 @@ export default {
       })
       const div = ref()
       onMounted(() => {
+        console.log(msg.value)
         console.log(div.value) // <div>
         })
     return {
