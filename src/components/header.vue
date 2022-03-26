@@ -12,22 +12,18 @@
     <span></span>
   </nav>
 </template>
-<script>
+<script type="module">
+import { ref } from 'vue'
 export default {
-  name: "header",
-  data() {
-    return {
-      navBarList: [
+  setup(){
+    const navBarList = ref([
         { name: "Home", url: "./" },
         { name: "Odds", url: "./odds" },
         { name: "News", url: "./news" },
-      ],
-    };
-  },
-  mounted() {    
-  },
-  methods: {},
+      ])
+    return {
+      navBarList
+    }
+  } 
 };
 </script>
-<style>
-</style>

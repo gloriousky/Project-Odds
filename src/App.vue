@@ -11,11 +11,5 @@ export default {
   components: {
     Header
   },
-  data() {
-    return {};
-  },
-  mounted() {
-  },
-  methods: {}
 };
 </script>
