@@ -1,2 +1,4 @@
-# Project-W
- Vu3 + Vite + TailwindCSS
+# Project about Sport Book Review
+
+Vue3 + Vite + TailwindCSS
+ 
