@@ -112,7 +112,10 @@
                 <thead class="h-10 bg-stone-200 border-b">
                     <tr>
                         <th>
-                            <a class="flex justify-center items-center" href="https://www.bet365.com/#/HO/">
+                            <a
+                                class="flex justify-center items-center"
+                                href="https://www.bet365.com/#/HO/"
+                            >
                                 <img
                                     class="w-28 h-8"
                                     src="/bet365.svg"
@@ -121,16 +124,20 @@
                             </a>
                         </th>
                         <th>
-                            <a class="flex justify-center items-center" href="https://betway.com/">
+                            <a
+                                class="flex justify-center items-center"
+                                href="https://sportsbook.fanduel.com/"
+                            >
                                 <img
                                     class="w-28 h-8"
-                                    src="/betway.svg"
+                                    src="/fanduel.jpg"
                                     alt=""
                                 />
                             </a>
                         </th>
                         <th>
-                            <a class="flex justify-center items-center"
+                            <a
+                                class="flex justify-center items-center"
                                 href="https://sports.williamhill.com/betting/en-gb"
                             >
                                 <img
@@ -141,18 +148,18 @@
                             </a>
                         </th>
                         <th>
-                            <a class="flex justify-center items-center"
-                                href="https://www.pinnacle.com/en/landing/sports-general"
+                            <a
+                                class="flex justify-center items-center"
+                                href="https://www.betus.com.pa/sportsbook/"
                             >
-                                <img
-                                    class="w-28 h-8"
-                                    src="/pinnacle.svg"
-                                    alt=""
-                                />
+                                <img class="w-28 h-8" src="/betus.svg" alt="" />
                             </a>
                         </th>
                         <th>
-                            <a class="flex justify-center items-center" href="https://www.betvictor.com/">
+                            <a
+                                class="flex justify-center items-center"
+                                href="https://www.betvictor.com/"
+                            >
                                 <img
                                     class="w-28 h-8"
                                     src="/betvictor.svg"
@@ -165,46 +172,214 @@
                 <tbody class="border-b">
                     <template v-for="item in oddsDataList" :key="item.id">
                         <tr class="border text-sm">
-                            <td>
-                                <div class="flex justify-center">
-                                    <span class="mr-2">
-                                        O
-                                        {{
-                                            item.bookmakers[0]['markets'][2][
-                                                'outcomes'
-                                            ][0]['point']
-                                        }}
-                                    </span>
+                            <template
+                                v-for="list in item.bookmakers"
+                                :key="list.key"
+                            >
+                                <td v-if="list.title === 'FOX Bet'">
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            O{{
+                                                list.markets[2]['outcomes'][0][
+                                                    'point'
+                                                ]
+                                            }}
+                                        </span>
 
-                                    <span class="text-gray-400">
-                                        {{
-                                            betRateConvert(
-                                                item.bookmakers[0][
-                                                    'markets'
-                                                ][2]['outcomes'][1]['price']
-                                            )
-                                        }}
-                                    </span>
-                                </div>
-                                <div class="flex justify-center">
-                                    <span class="mr-2">
-                                        {{
-                                            item.bookmakers[0]['markets'][1][
-                                                'outcomes'
-                                            ][1]['point']
-                                        }}
-                                    </span>
-                                    <span class="text-gray-400">
-                                        {{
-                                            betRateConvert(
-                                                item.bookmakers[0][
-                                                    'markets'
-                                                ][1]['outcomes'][1]['price']
-                                            )
-                                        }}
-                                    </span>
-                                </div>
-                            </td>
+                                        <span class="text-gray-400">
+                                            {{
+                                                betRateConvert(
+                                                    list.markets[2][
+                                                        'outcomes'
+                                                    ][0]['price']
+                                                )
+                                            }}
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[1]['outcomes'][1][
+                                                    'point'
+                                                ]
+                                            }}
+                                        </span>
+                                        <span class="text-gray-400">
+                                            {{
+                                                betRateConvert(
+                                                    list.markets[1][
+                                                        'outcomes'
+                                                    ][1]['price']
+                                                )
+                                            }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td v-else-if="list.title === 'FanDuel'">
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            O{{
+                                                list.markets[2]['outcomes'][0][
+                                                    'point'
+                                                ]
+                                            }}
+                                        </span>
+
+                                        <span class="text-gray-400">
+                                            {{
+                                                betRateConvert(
+                                                    list.markets[2][
+                                                        'outcomes'
+                                                    ][0]['price']
+                                                )
+                                            }}
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[1]['outcomes'][1][
+                                                    'point'
+                                                ]
+                                            }}
+                                        </span>
+                                        <span class="text-gray-400">
+                                            {{
+                                                betRateConvert(
+                                                    list.markets[1][
+                                                        'outcomes'
+                                                    ][1]['price']
+                                                )
+                                            }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td
+                                    v-else-if="
+                                        list.title === 'William Hill (US)'
+                                    "
+                                >
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            O{{
+                                                list.markets[2]['outcomes'][0][
+                                                    'point'
+                                                ]
+                                            }}
+                                        </span>
+
+                                        <span class="text-gray-400">
+                                            {{
+                                                betRateConvert(
+                                                    list.markets[2][
+                                                        'outcomes'
+                                                    ][0]['price']
+                                                )
+                                            }}
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[1]['outcomes'][1][
+                                                    'point'
+                                                ]
+                                            }}
+                                        </span>
+                                        <span class="text-gray-400">
+                                            {{
+                                                betRateConvert(
+                                                    list.markets[1][
+                                                        'outcomes'
+                                                    ][1]['price']
+                                                )
+                                            }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td v-else-if="list.title === 'BetMGM'">
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            O{{
+                                                list.markets[2]
+                                                    ? list.markets[2][
+                                                          'outcomes'
+                                                      ][0]['point']
+                                                    : ''
+                                            }}
+                                        </span>
+
+                                        <span class="text-gray-400">
+                                            {{
+                                                list.markets[2]
+                                                    ? betRateConvert(
+                                                          list.markets[2][
+                                                              'outcomes'
+                                                          ][0]['price']
+                                                      )
+                                                    : ''
+                                            }}
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[1]['outcomes'][1][
+                                                    'point'
+                                                ]
+                                            }}
+                                        </span>
+                                        <span class="text-gray-400">
+                                            {{
+                                                betRateConvert(
+                                                    list.markets[1][
+                                                        'outcomes'
+                                                    ][1]['price']
+                                                )
+                                            }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td v-else-if="list.title === 'DraftKings'">
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            O{{
+                                                list.markets[2]['outcomes'][0][
+                                                    'point'
+                                                ]
+                                            }}
+                                        </span>
+
+                                        <span class="text-gray-400">
+                                            {{
+                                                betRateConvert(
+                                                    list.markets[2][
+                                                        'outcomes'
+                                                    ][0]['price']
+                                                )
+                                            }}
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[1]['outcomes'][1][
+                                                    'point'
+                                                ]
+                                            }}
+                                        </span>
+                                        <span class="text-gray-400">
+                                            {{
+                                                betRateConvert(
+                                                    list.markets[1][
+                                                        'outcomes'
+                                                    ][1]['price']
+                                                )
+                                            }}
+                                        </span>
+                                    </div>
+                                </td>
+                            </template>
                         </tr>
                     </template>
                 </tbody>
@@ -10505,6 +10680,7 @@ export default {
 
         onMounted(() => {
             console.log('onMounted')
+            console.log(oddsDataList.value)
         })
         watch(selectValue, (value, preVal) => {
             //   console.log(value);
