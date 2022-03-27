@@ -21,14 +21,14 @@
                     <tr>
                         <th>Time</th>
                         <th>Game</th>
-                        <th></th>
-                        <th class="hidden lg:table-cell">Open</th>
+                        <th class="w-1/6"></th>
+                        <th class="hidden lg:table-cell w-14">Open</th>
                     </tr>
                 </thead>
                 <tbody>
                     <template v-for="item in oddsDataList" :key="item.id">
-                        <tr class="border">
-                            <td class="px-5">
+                        <tr class="border text-center">
+                            <td class="px-2">
                                 {{
                                     timeFormat(
                                         new Date(item.commence_time).getTime()
@@ -73,7 +73,7 @@
                                     </span>
                                 </div>
                             </td>
-                            <td class="px-2">
+                            <td class="px-2 mr-4">
                                 <div @click="getOddsLine()" class="primary-btn">
                                     Line
                                 </div>
@@ -10525,6 +10525,6 @@ export default {
 </script>
 <style lang="postcss">
 .primary-btn {
-    @apply border border-orange-500 py-1 px-2 rounded-md cursor-pointer hover:bg-orange-600 hover:text-white hover:duration-100;
+    @apply border border-orange-500 text-center py-1 px-2 rounded-md cursor-pointer hover:bg-orange-600 hover:text-white hover:duration-100;
 }
 </style>
