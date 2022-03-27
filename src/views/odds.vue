@@ -112,7 +112,7 @@
                 <thead class="h-10 bg-stone-200 border-b">
                     <tr>
                         <th>
-                            <a href="https://www.bet365.com/#/HO/">
+                            <a class="flex justify-center items-center" href="https://www.bet365.com/#/HO/">
                                 <img
                                     class="w-28 h-8"
                                     src="/bet365.svg"
@@ -121,10 +121,16 @@
                             </a>
                         </th>
                         <th>
-                            <img class="w-28 h-8" src="/betway.svg" alt="" />
+                            <a class="flex justify-center items-center" href="https://betway.com/">
+                                <img
+                                    class="w-28 h-8"
+                                    src="/betway.svg"
+                                    alt=""
+                                />
+                            </a>
                         </th>
                         <th>
-                            <a
+                            <a class="flex justify-center items-center"
                                 href="https://sports.williamhill.com/betting/en-gb"
                             >
                                 <img
@@ -135,7 +141,7 @@
                             </a>
                         </th>
                         <th>
-                            <a
+                            <a class="flex justify-center items-center"
                                 href="https://www.pinnacle.com/en/landing/sports-general"
                             >
                                 <img
@@ -146,7 +152,7 @@
                             </a>
                         </th>
                         <th>
-                            <a href="https://www.betvictor.com/">
+                            <a class="flex justify-center items-center" href="https://www.betvictor.com/">
                                 <img
                                     class="w-28 h-8"
                                     src="/betvictor.svg"
