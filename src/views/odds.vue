@@ -150,14 +150,6 @@
                         <th>
                             <a
                                 class="flex justify-center items-center"
-                                href="https://www.betus.com.pa/sportsbook/"
-                            >
-                                <img class="w-28 h-8" src="/betus.svg" alt="" />
-                            </a>
-                        </th>
-                        <th>
-                            <a
-                                class="flex justify-center items-center"
                                 href="https://www.betvictor.com/"
                             >
                                 <img
@@ -165,6 +157,14 @@
                                     src="/betvictor.svg"
                                     alt=""
                                 />
+                            </a>
+                        </th>
+                        <th>
+                            <a
+                                class="flex justify-center items-center"
+                                href="https://www.betus.com.pa/sportsbook/"
+                            >
+                                <img class="w-28 h-8" src="/betus.svg" alt="" />
                             </a>
                         </th>
                     </tr>
@@ -179,128 +179,7 @@
                                 <td v-if="list.title === 'FOX Bet'">
                                     <div class="flex justify-center">
                                         <span class="mr-2">
-                                            O{{
-                                                list.markets[2]['outcomes'][0][
-                                                    'point'
-                                                ]
-                                            }}
-                                        </span>
-
-                                        <span class="text-gray-400">
                                             {{
-                                                betRateConvert(
-                                                    list.markets[2][
-                                                        'outcomes'
-                                                    ][0]['price']
-                                                )
-                                            }}
-                                        </span>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <span class="mr-2">
-                                            {{
-                                                list.markets[1]['outcomes'][1][
-                                                    'point'
-                                                ]
-                                            }}
-                                        </span>
-                                        <span class="text-gray-400">
-                                            {{
-                                                betRateConvert(
-                                                    list.markets[1][
-                                                        'outcomes'
-                                                    ][1]['price']
-                                                )
-                                            }}
-                                        </span>
-                                    </div>
-                                </td>
-                                <td v-else-if="list.title === 'FanDuel'">
-                                    <div class="flex justify-center">
-                                        <span class="mr-2">
-                                            O{{
-                                                list.markets[2]['outcomes'][0][
-                                                    'point'
-                                                ]
-                                            }}
-                                        </span>
-
-                                        <span class="text-gray-400">
-                                            {{
-                                                betRateConvert(
-                                                    list.markets[2][
-                                                        'outcomes'
-                                                    ][0]['price']
-                                                )
-                                            }}
-                                        </span>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <span class="mr-2">
-                                            {{
-                                                list.markets[1]['outcomes'][1][
-                                                    'point'
-                                                ]
-                                            }}
-                                        </span>
-                                        <span class="text-gray-400">
-                                            {{
-                                                betRateConvert(
-                                                    list.markets[1][
-                                                        'outcomes'
-                                                    ][1]['price']
-                                                )
-                                            }}
-                                        </span>
-                                    </div>
-                                </td>
-                                <td
-                                    v-else-if="
-                                        list.title === 'William Hill (US)'
-                                    "
-                                >
-                                    <div class="flex justify-center">
-                                        <span class="mr-2">
-                                            O{{
-                                                list.markets[2]['outcomes'][0][
-                                                    'point'
-                                                ]
-                                            }}
-                                        </span>
-
-                                        <span class="text-gray-400">
-                                            {{
-                                                betRateConvert(
-                                                    list.markets[2][
-                                                        'outcomes'
-                                                    ][0]['price']
-                                                )
-                                            }}
-                                        </span>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <span class="mr-2">
-                                            {{
-                                                list.markets[1]['outcomes'][1][
-                                                    'point'
-                                                ]
-                                            }}
-                                        </span>
-                                        <span class="text-gray-400">
-                                            {{
-                                                betRateConvert(
-                                                    list.markets[1][
-                                                        'outcomes'
-                                                    ][1]['price']
-                                                )
-                                            }}
-                                        </span>
-                                    </div>
-                                </td>
-                                <td v-else-if="list.title === 'BetMGM'">
-                                    <div class="flex justify-center">
-                                        <span class="mr-2">
-                                            O{{
                                                 list.markets[2]
                                                     ? list.markets[2][
                                                           'outcomes'
@@ -324,18 +203,169 @@
                                     <div class="flex justify-center">
                                         <span class="mr-2">
                                             {{
-                                                list.markets[1]['outcomes'][1][
-                                                    'point'
-                                                ]
+                                                list.markets[1]
+                                                    ? list.markets[1][
+                                                          'outcomes'
+                                                      ][1]['point']
+                                                    : ''
                                             }}
                                         </span>
                                         <span class="text-gray-400">
                                             {{
-                                                betRateConvert(
-                                                    list.markets[1][
-                                                        'outcomes'
-                                                    ][1]['price']
-                                                )
+                                                list.markets[1]
+                                                    ? betRateConvert(
+                                                          list.markets[1][
+                                                              'outcomes'
+                                                          ][1]['price']
+                                                      )
+                                                    : ''
+                                            }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td v-else-if="list.title === 'FanDuel'">
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[2]
+                                                    ? list.markets[2][
+                                                          'outcomes'
+                                                      ][0]['point']
+                                                    : ''
+                                            }}
+                                        </span>
+
+                                        <span class="text-gray-400">
+                                            {{
+                                                list.markets[2]
+                                                    ? betRateConvert(
+                                                          list.markets[2][
+                                                              'outcomes'
+                                                          ][0]['price']
+                                                      )
+                                                    : ''
+                                            }}
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[1]
+                                                    ? list.markets[1][
+                                                          'outcomes'
+                                                      ][1]['point']
+                                                    : ''
+                                            }}
+                                        </span>
+                                        <span class="text-gray-400">
+                                            {{
+                                                list.markets[1]
+                                                    ? betRateConvert(
+                                                          list.markets[1][
+                                                              'outcomes'
+                                                          ][1]['price']
+                                                      )
+                                                    : ''
+                                            }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td
+                                    v-else-if="
+                                        list.title === 'William Hill (US)'
+                                    "
+                                >
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[2]
+                                                    ? list.markets[2][
+                                                          'outcomes'
+                                                      ][0]['point']
+                                                    : ''
+                                            }}
+                                        </span>
+
+                                        <span class="text-gray-400">
+                                            {{
+                                                list.markets[2]
+                                                    ? betRateConvert(
+                                                          list.markets[2][
+                                                              'outcomes'
+                                                          ][0]['price']
+                                                      )
+                                                    : ''
+                                            }}
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[1]
+                                                    ? list.markets[1][
+                                                          'outcomes'
+                                                      ][1]['point']
+                                                    : ''
+                                            }}
+                                        </span>
+                                        <span class="text-gray-400">
+                                            {{
+                                                list.markets[1]
+                                                    ? betRateConvert(
+                                                          list.markets[1][
+                                                              'outcomes'
+                                                          ][1]['price']
+                                                      )
+                                                    : ''
+                                            }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td v-else-if="list.title === 'BetUS'">
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[2] &&
+                                                list.markets[2]['key'] ==
+                                                    'totals'
+                                                    ? list.markets[2][
+                                                          'outcomes'
+                                                      ][0]['point']
+                                                    : ''
+                                            }}
+                                        </span>
+
+                                        <span class="text-gray-400">
+                                            {{
+                                                list.markets[2]
+                                                    ? betRateConvert(
+                                                          list.markets[2][
+                                                              'outcomes'
+                                                          ][0]['price']
+                                                      )
+                                                    : ''
+                                            }}
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <span class="mr-2">
+                                            {{
+                                                list.markets[1]
+                                                    ? list.markets[1][
+                                                          'outcomes'
+                                                      ][1]['point']
+                                                    : ''
+                                            }}
+                                        </span>
+                                        <span class="text-gray-400">
+                                            {{
+                                                list.markets[1]
+                                                    ? betRateConvert(
+                                                          list.markets[1][
+                                                              'outcomes'
+                                                          ][1]['price']
+                                                      )
+                                                    : ''
                                             }}
                                         </span>
                                     </div>
@@ -343,38 +373,46 @@
                                 <td v-else-if="list.title === 'DraftKings'">
                                     <div class="flex justify-center">
                                         <span class="mr-2">
-                                            O{{
-                                                list.markets[2]['outcomes'][0][
-                                                    'point'
-                                                ]
+                                            {{
+                                                list.markets[2]
+                                                    ? list.markets[2][
+                                                          'outcomes'
+                                                      ][0]['point']
+                                                    : ''
                                             }}
                                         </span>
 
                                         <span class="text-gray-400">
                                             {{
-                                                betRateConvert(
-                                                    list.markets[2][
-                                                        'outcomes'
-                                                    ][0]['price']
-                                                )
+                                                list.markets[2]
+                                                    ? betRateConvert(
+                                                          list.markets[2][
+                                                              'outcomes'
+                                                          ][0]['price']
+                                                      )
+                                                    : ''
                                             }}
                                         </span>
                                     </div>
                                     <div class="flex justify-center">
                                         <span class="mr-2">
                                             {{
-                                                list.markets[1]['outcomes'][1][
-                                                    'point'
-                                                ]
+                                                list.markets[1]
+                                                    ? list.markets[1][
+                                                          'outcomes'
+                                                      ][1]['point']
+                                                    : ''
                                             }}
                                         </span>
                                         <span class="text-gray-400">
                                             {{
-                                                betRateConvert(
-                                                    list.markets[1][
-                                                        'outcomes'
-                                                    ][1]['price']
-                                                )
+                                                list.markets[1]
+                                                    ? betRateConvert(
+                                                          list.markets[1][
+                                                              'outcomes'
+                                                          ][1]['price']
+                                                      )
+                                                    : ''
                                             }}
                                         </span>
                                     </div>
@@ -397,10263 +435,7469 @@ export default {
         const showModal = ref(false)
         const selectValue = ref('Decimal')
         const oddsDataList = ref([
+    {
+        "id": "e996cfe67a28cda1e93772a1ccf3f11d",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2022-03-28T23:00:00Z",
+        "home_team": "Charlotte Hornets",
+        "away_team": "Denver Nuggets",
+        "bookmakers": [
             {
-                id: 'b098a5956e3da40312b9a0ff4377005b',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-23T23:10:00Z',
-                home_team: 'Detroit Pistons',
-                away_team: 'Atlanta Hawks',
-                bookmakers: [
+                "key": "unibet",
+                "title": "Unibet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
                     {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
+                        "key": "h2h",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.51,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.66,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.3
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.65
+                            }
+                        ]
                     },
                     {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.7,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.92,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.9,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.45,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.8,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.92,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.92,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.49,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.97,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.94,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 226.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 226.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.92,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.89,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 226.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 226.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.52,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.56,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.98,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.87,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.95,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Atlanta Hawks',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Detroit Pistons',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: 'fe331a779682c5fb93f1b5f6e221d18a',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-23T23:10:00Z',
-                home_team: 'Charlotte Hornets',
-                away_team: 'New York Knicks',
-                bookmakers: [
+                "key": "sugarhouse",
+                "title": "SugarHouse",
+                "last_update": "2022-03-28T04:11:29Z",
+                "markets": [
                     {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
+                        "key": "h2h",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.37,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.2,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.3
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.65
+                            }
+                        ]
                     },
                     {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.35,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.05,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.92,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -6.5,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 6.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.89,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.34,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.45,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.87,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.95,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.33,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.4,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.87,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.95,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 227,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 227,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.36,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.25,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.33,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.4,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.34,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.45,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 2,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.34,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.4,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.92,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.92,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.36,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.36,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.2,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -6.5,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 6.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.38,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.42,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.75,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.36,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.2,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.36,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -6.5,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 6.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.35,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.35,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.35,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.35,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.35,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.34,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 3.4,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Charlotte Hornets',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                    {
-                                        name: 'New York Knicks',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: '1d079e138a8bde082dad08a54ff4581e',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-23T23:10:00Z',
-                home_team: 'Indiana Pacers',
-                away_team: 'Sacramento Kings',
-                bookmakers: [
+                "key": "barstool",
+                "title": "Barstool Sportsbook",
+                "last_update": "2022-03-28T04:11:37Z",
+                "markets": [
                     {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
+                        "key": "h2h",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.85,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.3
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.65
+                            }
+                        ]
                     },
                     {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.7,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.92,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.89,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.4,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 3,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.9,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.42,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.98,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.45,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.85,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.92,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.92,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 237,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 237,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.85,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 237,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 237,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.95,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 237,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 237,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.95,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.87,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.95,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 237,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 237,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.96,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.51,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 3.1,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.4,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.95,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.88,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.89,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.92,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.88,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.89,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.92,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.88,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.9,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.92,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.88,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.89,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.92,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.43,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.88,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.89,
-                                        point: -6,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.92,
-                                        point: 6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.45,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Indiana Pacers',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Sacramento Kings',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 237,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 237,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: '04e391f405764f95b798b761a58786b2',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-23T23:40:00Z',
-                home_team: 'Boston Celtics',
-                away_team: 'Utah Jazz',
-                bookmakers: [
+                "key": "twinspires",
+                "title": "TwinSpires",
+                "last_update": "2022-03-28T04:11:58Z",
+                "markets": [
                     {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
+                        "key": "h2h",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.75,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.3
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.87,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.95,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 219.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.87,
-                                        point: 219.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.65
+                            }
+                        ]
                     },
                     {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.65,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.92,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 2,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.85,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.89,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.65,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.95,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.87,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.45,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.9,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.9,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.9,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -4.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 4.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.47,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.46,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.9,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.95,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.95,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.92,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.92,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.96,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.51,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 3,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.44,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.85,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.87,
-                                        point: 219.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 219.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.45,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.9,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 220,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 220,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.48,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 2.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Boston Celtics',
-                                        price: 1.91,
-                                        point: -5.5,
-                                    },
-                                    {
-                                        name: 'Utah Jazz',
-                                        price: 1.91,
-                                        point: 5.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: '2520dd01fee561a28e30c85e2ac69854',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-23T23:40:00Z',
-                home_team: 'Memphis Grizzlies',
-                away_team: 'Brooklyn Nets',
-                bookmakers: [
+                "key": "lowvig",
+                "title": "LowVig.ag",
+                "last_update": "2022-03-28T04:13:05Z",
+                "markets": [
                     {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.69,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.22,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.95,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.93,
-                                        point: -3,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.89,
-                                        point: 3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.95,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.69,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.25,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.87,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.95,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 237,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.87,
-                                        point: 237,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.67,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.15,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.91,
-                                        point: -3,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.67,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.25,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.91,
-                                        point: -3,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 235,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 235,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.71,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.2,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.91,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.69,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.25,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.92,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.92,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.67,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.91,
-                                        point: -3,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.71,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.15,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.91,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.71,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.2,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.95,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.95,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 237.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 237.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.71,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.2,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.9,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.9,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 237.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 237.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.69,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.25,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.87,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.95,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.69,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.25,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.91,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 237,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 237,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.69,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.25,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.87,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.95,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.67,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.23,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.9,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.67,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.23,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.89,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.67,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.23,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.89,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.67,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.23,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.89,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.76,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.77,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.32,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.67,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 2.23,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Brooklyn Nets',
-                                        price: 1.89,
-                                        point: -2.5,
-                                    },
-                                    {
-                                        name: 'Memphis Grizzlies',
-                                        price: 1.91,
-                                        point: 2.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: '385d6a7b9b71b2f469edd22f98c923c3',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-23T23:40:00Z',
-                home_team: 'Miami Heat',
-                away_team: 'Golden State Warriors',
-                bookmakers: [
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2022-03-28T04:12:32Z",
+                "markets": [
                     {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
+                        "key": "h2h",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.3,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.36,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.35
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 213,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 213,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.62
+                            }
+                        ]
                     },
                     {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.45,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.33,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.91,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.91,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.35,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.35,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.9,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.9,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 213,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 213,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.1,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.38,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.87,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.95,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 213.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.87,
-                                        point: 213.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.4,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.87,
-                                        point: 6.5,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.95,
-                                        point: -6.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.35,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.36,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.92,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.92,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 213.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 213.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.2,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.37,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 6.5,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -6.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.35,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.36,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.95,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.95,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 213,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 213,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.3,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.36,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.4,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.33,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 214.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 214.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.4,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.36,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 214.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 214.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.35,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.34,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 214.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 214.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.35,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.34,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 214.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 214.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.35,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.34,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 214.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 214.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.35,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.34,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 214.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 214.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.2,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.43,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.5,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.44,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.35,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.34,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 214.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 214.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.15,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.33,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 6.5,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -6.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.85,
-                                        point: 214,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 2,
-                                        point: 214,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 3.4,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.34,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Golden State Warriors',
-                                        price: 1.91,
-                                        point: 7,
-                                    },
-                                    {
-                                        name: 'Miami Heat',
-                                        price: 1.91,
-                                        point: -7,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 213.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: '1617c9adbc5207f2f1b15816387bb232',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-24T00:10:00Z',
-                home_team: 'Minnesota Timberwolves',
-                away_team: 'Phoenix Suns',
-                bookmakers: [
+                "key": "gtbets",
+                "title": "GTbets",
+                "last_update": "2022-03-28T04:12:38Z",
+                "markets": [
                     {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
+                        "key": "h2h",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.83,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.45
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.87,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.59
+                            }
+                        ]
                     },
                     {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.95,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.8,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.92,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.92,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.95,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.87,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.92,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 235.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.81,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.9,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.9,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 237,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 237,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.83,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.12,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.76,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.97,
-                                        point: 2,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.94,
-                                        point: -2,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 237,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 237,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.92,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.92,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.83,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.04,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.86,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.18,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.96,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.83,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.83,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.83,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.83,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.83,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Minnesota Timberwolves',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Phoenix Suns',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 236,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: 'f1d90a64a4e3e04f2e7afed5919a49fe',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-24T00:10:00Z',
-                home_team: 'Oklahoma City Thunder',
-                away_team: 'Orlando Magic',
-                bookmakers: [
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2022-03-28T04:12:15Z",
+                "markets": [
                     {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
+                        "key": "h2h",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.04,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.82,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.44
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.89,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.63
+                            }
+                        ]
                     },
                     {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
+                        "key": "h2h_lay",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.97,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.85,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.6
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.94,
-                                        point: 1,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.87,
-                                        point: -1,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 220.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 220.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.83,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 220.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 220.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 220.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 220.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.92,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.92,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 220.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 220.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 2,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.91,
-                                        point: -2,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.97,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.85,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.99,
-                                        point: 1,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.92,
-                                        point: -1,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 220.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 220.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 220.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 220.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.75,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 220,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 220,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.1,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.77,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 2,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.91,
-                                        point: -2,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.82,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.92,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.88,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.82,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.92,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.88,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.82,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.92,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.89,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.82,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.92,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.88,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.06,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.84,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.18,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.94,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.02,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.82,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.92,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.88,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 219,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 1.5,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.91,
-                                        point: -1.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 220.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 220.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 2.05,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Oklahoma City Thunder',
-                                        price: 1.91,
-                                        point: 2,
-                                    },
-                                    {
-                                        name: 'Orlando Magic',
-                                        price: 1.91,
-                                        point: -2,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 219.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.87,
-                                        point: 219.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Denver Nuggets",
+                                "price": 1.7
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: 'efc6ba33b4a70cc1325e9421d122c50c',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-24T00:40:00Z',
-                home_team: 'Dallas Mavericks',
-                away_team: 'Houston Rockets',
-                bookmakers: [
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2022-03-28T04:06:33Z",
+                "markets": [
                     {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
+                        "key": "h2h",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.5,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.4
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.91,
-                                        point: -9,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.91,
-                                        point: 9,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.61
+                            }
+                        ]
                     },
                     {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.5,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.95,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.91,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.91,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.89,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.87,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.21,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.6,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.91,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.91,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.24,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.1,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.95,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.87,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.92,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.92,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.91,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.91,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.4,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.91,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.91,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.25,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.29,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.95,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.95,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.59,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.9,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.9,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.88,
-                                        point: 225,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.93,
-                                        point: 225,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.2,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.91,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.91,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.91,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.91,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.6,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.91,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.91,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.23,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.93,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.88,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.23,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.93,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.88,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.23,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.94,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.88,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.23,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.93,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.88,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.23,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 4.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.93,
-                                        point: -9.5,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 1.88,
-                                        point: 9.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 226,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 226,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.22,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 3.9,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Dallas Mavericks',
-                                        price: 1.85,
-                                        point: -9,
-                                    },
-                                    {
-                                        name: 'Houston Rockets',
-                                        price: 2,
-                                        point: 9,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 225.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: '9737043bb9893f0c879c750a437e41da',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-24T02:10:00Z',
-                home_team: 'Los Angeles Lakers',
-                away_team: 'Philadelphia 76ers',
-                bookmakers: [
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2022-03-28T04:10:09Z",
+                "markets": [
                     {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
+                        "key": "h2h",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.3,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.34,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 2.3
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 230,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.87,
-                                        point: 230,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.65
+                            }
+                        ]
                     },
                     {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.7,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.29,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.92,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 8,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 229,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 229,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.89,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.7,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.29,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.3,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.33,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.45,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.32,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.92,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.92,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 229.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 229.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.45,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.33,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.55,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.32,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.4,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.33,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.45,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.35,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.85,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.41,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.33,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.95,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.95,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 229,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 229,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.33,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.9,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.9,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 229,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 229,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.31,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.33,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 229,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 229,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.65,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.32,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 229.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.55,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.32,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 230,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 230,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.55,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.32,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 230,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 230,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.55,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.32,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 230,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 230,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.55,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.32,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 230,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 230,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betrivers',
-                        title: 'BetRivers',
-                        last_update: '2022-03-23T12:27:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 3.55,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.32,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Los Angeles Lakers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'Philadelphia 76ers',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 230,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 230,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                id: 'c69c4912530dedd48d09c3aca28d8497',
-                sport_key: 'basketball_nba',
-                sport_title: 'NBA',
-                commence_time: '2022-03-24T02:10:00Z',
-                home_team: 'Portland Trail Blazers',
-                away_team: 'San Antonio Spurs',
-                bookmakers: [
+                "key": "betus",
+                "title": "BetUS",
+                "last_update": "2022-03-28T04:10:26Z",
+                "markets": [
                     {
-                        key: 'draftkings',
-                        title: 'DraftKings',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
+                        "key": "spreads",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.7,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.29,
-                                    },
-                                ],
+                                "name": "Charlotte Hornets",
+                                "price": 1.91,
+                                "point": 3.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 233,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 233,
-                                    },
-                                ],
-                            },
-                        ],
+                                "name": "Denver Nuggets",
+                                "price": 1.91,
+                                "point": -3.5
+                            }
+                        ]
                     },
                     {
-                        key: 'wynnbet',
-                        title: 'WynnBET',
-                        last_update: '2022-03-23T12:28:27Z',
-                        markets: [
+                        "key": "totals",
+                        "outcomes": [
                             {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.7,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.29,
-                                    },
-                                ],
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
                             },
                             {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betonlineag',
-                        title: 'BetOnline.ag',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.8,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.28,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.92,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.89,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.9,
-                                        point: 232,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.9,
-                                        point: 232,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'williamhill_us',
-                        title: 'William Hill (US)',
-                        last_update: '2022-03-23T12:28:38Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.85,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.28,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'lowvig',
-                        title: 'LowVig.ag',
-                        last_update: '2022-03-23T12:23:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.8,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.29,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.95,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.95,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.95,
-                                        point: 232,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.95,
-                                        point: 232,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'foxbet',
-                        title: 'FOX Bet',
-                        last_update: '2022-03-23T12:26:41Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.28,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 2,
-                                        point: 8,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.85,
-                                        point: -8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'gtbets',
-                        title: 'GTbets',
-                        last_update: '2022-03-23T12:27:16Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.7,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.28,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.92,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.92,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.92,
-                                        point: 232.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 232.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'fanduel',
-                        title: 'FanDuel',
-                        last_update: '2022-03-23T12:28:30Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.95,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.27,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betmgm',
-                        title: 'BetMGM',
-                        last_update: '2022-03-23T12:27:17Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 4,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.25,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'bovada',
-                        title: 'Bovada',
-                        last_update: '2022-03-23T12:28:22Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.85,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.27,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 233,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 233,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betfair',
-                        title: 'Betfair',
-                        last_update: '2022-03-23T12:24:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.9,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.31,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'h2h_lay',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 4.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.35,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'pointsbetus',
-                        title: 'PointsBet (US)',
-                        last_update: '2022-03-23T12:29:40Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.6,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.28,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'betus',
-                        title: 'BetUS',
-                        last_update: '2022-03-23T12:27:32Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.9,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.29,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 232.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'mybookieag',
-                        title: 'MyBookie.ag',
-                        last_update: '2022-03-23T12:29:45Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.65,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.32,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 7.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -7.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'barstool',
-                        title: 'Barstool Sportsbook',
-                        last_update: '2022-03-23T12:29:19Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.9,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.27,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 232.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 232.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'sugarhouse',
-                        title: 'SugarHouse',
-                        last_update: '2022-03-23T12:28:33Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.65,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'unibet',
-                        title: 'Unibet',
-                        last_update: '2022-03-23T12:23:44Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.65,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.3,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.91,
-                                        point: 233.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        key: 'twinspires',
-                        title: 'TwinSpires',
-                        last_update: '2022-03-23T12:29:07Z',
-                        markets: [
-                            {
-                                key: 'h2h',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 3.9,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.27,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'spreads',
-                                outcomes: [
-                                    {
-                                        name: 'Portland Trail Blazers',
-                                        price: 1.91,
-                                        point: 8.5,
-                                    },
-                                    {
-                                        name: 'San Antonio Spurs',
-                                        price: 1.91,
-                                        point: -8.5,
-                                    },
-                                ],
-                            },
-                            {
-                                key: 'totals',
-                                outcomes: [
-                                    {
-                                        name: 'Over',
-                                        price: 1.89,
-                                        point: 232.5,
-                                    },
-                                    {
-                                        name: 'Under',
-                                        price: 1.92,
-                                        point: 232.5,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
             },
-        ])
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 2.4
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.62
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 1.91,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.91,
+                                "point": -3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 232
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 232
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2022-03-28T04:10:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 2.38
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.61
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 1.93,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.89,
+                                "point": -3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 232
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 232
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betonlineag",
+                "title": "BetOnline.ag",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 1.9,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.9,
+                                "point": -3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 231.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "foxbet",
+                "title": "FOX Bet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 2.35
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.55
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 1.91,
+                                "point": 4
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.91,
+                                "point": -4
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "wynnbet",
+                "title": "WynnBET",
+                "last_update": "2022-03-28T04:11:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 2.5
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.56
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 1.91,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.91,
+                                "point": -3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2022-03-28T04:11:11Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 2.45
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.59
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 1.91,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.91,
+                                "point": -3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pointsbetus",
+                "title": "PointsBet (US)",
+                "last_update": "2022-03-28T04:11:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 2.45
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.57
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 1.95,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.87,
+                                "point": -3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 231.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.87,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "mybookieag",
+                "title": "MyBookie.ag",
+                "last_update": "2022-03-28T04:06:51Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 2.4
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.59
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Charlotte Hornets",
+                                "price": 1.91,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Denver Nuggets",
+                                "price": 1.91,
+                                "point": -3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 231.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 231.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3c99e985f703a996950f1b7fab0b925d",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2022-03-28T23:00:00Z",
+        "home_team": "Cleveland Cavaliers",
+        "away_team": "Orlando Magic",
+        "bookmakers": [
+            {
+                "key": "unibet",
+                "title": "Unibet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "sugarhouse",
+                "title": "SugarHouse",
+                "last_update": "2022-03-28T04:11:29Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "barstool",
+                "title": "Barstool Sportsbook",
+                "last_update": "2022-03-28T04:11:37Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "twinspires",
+                "title": "TwinSpires",
+                "last_update": "2022-03-28T04:11:58Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "lowvig",
+                "title": "LowVig.ag",
+                "last_update": "2022-03-28T04:13:05Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 2,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 214.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 214.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2022-03-28T04:12:32Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.22
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.4
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 214.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 214.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "gtbets",
+                "title": "GTbets",
+                "last_update": "2022-03-28T04:12:38Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.92,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.92,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.92,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2022-03-28T04:12:15Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.25
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "h2h_lay",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.28
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2022-03-28T04:06:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2022-03-28T04:10:09Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betus",
+                "title": "BetUS",
+                "last_update": "2022-03-28T04:10:26Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2022-03-28T04:10:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.21
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betonlineag",
+                "title": "BetOnline.ag",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.95,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.87,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 214.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 214.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "foxbet",
+                "title": "FOX Bet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.18
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 2,
+                                "point": -10
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.85,
+                                "point": 10
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 2,
+                                "point": 214.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.85,
+                                "point": 214.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "wynnbet",
+                "title": "WynnBET",
+                "last_update": "2022-03-28T04:11:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.75
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 215.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 215.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2022-03-28T04:11:11Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.21
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pointsbetus",
+                "title": "PointsBet (US)",
+                "last_update": "2022-03-28T04:11:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.22
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.87,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "mybookieag",
+                "title": "MyBookie.ag",
+                "last_update": "2022-03-28T04:06:51Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.2
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Cleveland Cavaliers",
+                                "price": 1.91,
+                                "point": -9.5
+                            },
+                            {
+                                "name": "Orlando Magic",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 215
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 215
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "48e71c9d401eaabf9c7b763e957e77ed",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2022-03-28T23:10:00Z",
+        "home_team": "Indiana Pacers",
+        "away_team": "Atlanta Hawks",
+        "bookmakers": [
+            {
+                "key": "foxbet",
+                "title": "FOX Bet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.33
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.3
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 2,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.85,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 234.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 234.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2022-03-28T04:10:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.31
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.93,
+                                "point": -7.5
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.89,
+                                "point": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "gtbets",
+                "title": "GTbets",
+                "last_update": "2022-03-28T04:12:38Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.32
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.45
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.92,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.92,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.92,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2022-03-28T04:12:32Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.29
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7.5
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 234.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 234.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.31
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2022-03-28T04:11:11Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.31
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "wynnbet",
+                "title": "WynnBET",
+                "last_update": "2022-03-28T04:11:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.34
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.3
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 234.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 234.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pointsbetus",
+                "title": "PointsBet (US)",
+                "last_update": "2022-03-28T04:11:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.31
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2022-03-28T04:12:15Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.36
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "h2h_lay",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.38
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.8
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "lowvig",
+                "title": "LowVig.ag",
+                "last_update": "2022-03-28T04:13:05Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.95,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.95,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betonlineag",
+                "title": "BetOnline.ag",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.9,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.9,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betus",
+                "title": "BetUS",
+                "last_update": "2022-03-28T04:10:26Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "unibet",
+                "title": "Unibet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.3
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7.5
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "sugarhouse",
+                "title": "SugarHouse",
+                "last_update": "2022-03-28T04:11:29Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.3
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7.5
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "barstool",
+                "title": "Barstool Sportsbook",
+                "last_update": "2022-03-28T04:11:37Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.3
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7.5
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "twinspires",
+                "title": "TwinSpires",
+                "last_update": "2022-03-28T04:11:58Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.3
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7.5
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2022-03-28T04:10:09Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.3
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7.5
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "mybookieag",
+                "title": "MyBookie.ag",
+                "last_update": "2022-03-28T04:06:51Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.32
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 3.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Hawks",
+                                "price": 1.91,
+                                "point": -7
+                            },
+                            {
+                                "name": "Indiana Pacers",
+                                "price": 1.91,
+                                "point": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 235
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 235
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "cba3a16fb4b68b1130fd2d41789401af",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2022-03-28T23:30:00Z",
+        "home_team": "Toronto Raptors",
+        "away_team": "Boston Celtics",
+        "bookmakers": [
+            {
+                "key": "unibet",
+                "title": "Unibet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.14
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.92,
+                                "point": 3
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.9,
+                                "point": -3
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "sugarhouse",
+                "title": "SugarHouse",
+                "last_update": "2022-03-28T04:11:29Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.14
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.92,
+                                "point": 3
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.89,
+                                "point": -3
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "barstool",
+                "title": "Barstool Sportsbook",
+                "last_update": "2022-03-28T04:11:37Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.14
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.92,
+                                "point": 3
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.89,
+                                "point": -3
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "twinspires",
+                "title": "TwinSpires",
+                "last_update": "2022-03-28T04:11:58Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.14
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.92,
+                                "point": 3
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.89,
+                                "point": -3
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "lowvig",
+                "title": "LowVig.ag",
+                "last_update": "2022-03-28T04:13:05Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.95,
+                                "point": 2.5
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.95,
+                                "point": -2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 217.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 217.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2022-03-28T04:12:32Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.15
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.71
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.91,
+                                "point": 2.5
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.91,
+                                "point": -2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 217.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 217.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "gtbets",
+                "title": "GTbets",
+                "last_update": "2022-03-28T04:12:38Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.25
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.69
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.92,
+                                "point": 2.5
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.92,
+                                "point": -2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.92,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2022-03-28T04:12:15Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.24
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.72
+                            }
+                        ]
+                    },
+                    {
+                        "key": "h2h_lay",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.4
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.8
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2022-03-28T04:10:09Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.14
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.92,
+                                "point": 3
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.89,
+                                "point": -3
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.25
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.69
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.95,
+                                "point": 2.5
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.87,
+                                "point": -2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2022-03-28T04:10:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.24
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.68
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.91,
+                                "point": 3
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.91,
+                                "point": -3
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betonlineag",
+                "title": "BetOnline.ag",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.9,
+                                "point": 2.5
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.9,
+                                "point": -2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 217.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 217.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "wynnbet",
+                "title": "WynnBET",
+                "last_update": "2022-03-28T04:11:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.2
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.69
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.91,
+                                "point": 2.5
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.91,
+                                "point": -2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2022-03-28T04:11:11Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.3
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.67
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.91,
+                                "point": 2.5
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.91,
+                                "point": -2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "mybookieag",
+                "title": "MyBookie.ag",
+                "last_update": "2022-03-28T04:06:51Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 2.25
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.69
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Boston Celtics",
+                                "price": 1.91,
+                                "point": 2.5
+                            },
+                            {
+                                "name": "Toronto Raptors",
+                                "price": 1.91,
+                                "point": -2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 218
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 218
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "b8f5c1a9fcb064c4fdb52c4bcf174b78",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2022-03-28T23:40:00Z",
+        "home_team": "New York Knicks",
+        "away_team": "Chicago Bulls",
+        "bookmakers": [
+            {
+                "key": "foxbet",
+                "title": "FOX Bet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.47
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.55
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.91,
+                                "point": -5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.91,
+                                "point": 5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2022-03-28T04:10:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.48
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.76
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.91,
+                                "point": -5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.91,
+                                "point": 5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "gtbets",
+                "title": "GTbets",
+                "last_update": "2022-03-28T04:12:38Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.51
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.65
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.92,
+                                "point": -5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.92,
+                                "point": 5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.92,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2022-03-28T04:12:32Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.53
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.55
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.91,
+                                "point": -4.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.91,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.51
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.65
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.91,
+                                "point": -4.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.91,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2022-03-28T04:11:11Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.91,
+                                "point": -5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.91,
+                                "point": 5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2022-03-28T04:06:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.51
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.65
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.91,
+                                "point": -5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.91,
+                                "point": 5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "wynnbet",
+                "title": "WynnBET",
+                "last_update": "2022-03-28T04:11:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.53
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.55
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.91,
+                                "point": -4.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.91,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pointsbetus",
+                "title": "PointsBet (US)",
+                "last_update": "2022-03-28T04:11:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.65
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.91,
+                                "point": -4.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.91,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2022-03-28T04:12:15Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.55
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.02
+                            }
+                        ]
+                    },
+                    {
+                        "key": "h2h_lay",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.56
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.88
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "lowvig",
+                "title": "LowVig.ag",
+                "last_update": "2022-03-28T04:13:05Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.95,
+                                "point": -5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.95,
+                                "point": 5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 223
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 223
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betonlineag",
+                "title": "BetOnline.ag",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.9,
+                                "point": -5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.9,
+                                "point": 5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 223
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 223
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "unibet",
+                "title": "Unibet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.53
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.55
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.9,
+                                "point": -4.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.92,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "sugarhouse",
+                "title": "SugarHouse",
+                "last_update": "2022-03-28T04:11:29Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.53
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.55
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.89,
+                                "point": -4.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.92,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "barstool",
+                "title": "Barstool Sportsbook",
+                "last_update": "2022-03-28T04:11:37Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.53
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.55
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.89,
+                                "point": -4.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.92,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "twinspires",
+                "title": "TwinSpires",
+                "last_update": "2022-03-28T04:11:58Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.53
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.55
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.89,
+                                "point": -4.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.92,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2022-03-28T04:10:09Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.53
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.55
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.89,
+                                "point": -4.5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.92,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "mybookieag",
+                "title": "MyBookie.ag",
+                "last_update": "2022-03-28T04:06:51Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.51
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 2.65
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Chicago Bulls",
+                                "price": 1.91,
+                                "point": -5
+                            },
+                            {
+                                "name": "New York Knicks",
+                                "price": 1.91,
+                                "point": 5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 223.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 223.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "0d0f0e6fe7ea357f854ab579db4190e2",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2022-03-28T23:40:00Z",
+        "home_team": "Miami Heat",
+        "away_team": "Sacramento Kings",
+        "bookmakers": [
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.1
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.95,
+                                "point": -13.5
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.87,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 220
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 220
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pointsbetus",
+                "title": "PointsBet (US)",
+                "last_update": "2022-03-28T04:11:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.1
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.87,
+                                "point": -13.5
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.95,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 219
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2022-03-28T04:10:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.11
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 7.4
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.91,
+                                "point": -13
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "foxbet",
+                "title": "FOX Bet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.08
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.85,
+                                "point": -13
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 2,
+                                "point": 13
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.85,
+                                "point": 219
+                            },
+                            {
+                                "name": "Under",
+                                "price": 2,
+                                "point": 219
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "wynnbet",
+                "title": "WynnBET",
+                "last_update": "2022-03-28T04:11:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.09
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 8
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.91,
+                                "point": -13.5
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2022-03-28T04:12:32Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.11
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 7
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.91,
+                                "point": -13.5
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2022-03-28T04:12:15Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.1
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 8
+                            }
+                        ]
+                    },
+                    {
+                        "key": "h2h_lay",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.15
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 11
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "lowvig",
+                "title": "LowVig.ag",
+                "last_update": "2022-03-28T04:13:05Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.95,
+                                "point": -13
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.95,
+                                "point": 13
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 219
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 219
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betonlineag",
+                "title": "BetOnline.ag",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.9,
+                                "point": -13
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.9,
+                                "point": 13
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 219
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 219
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2022-03-28T04:11:11Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.1
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.91,
+                                "point": -13
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "unibet",
+                "title": "Unibet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.08
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 9
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.9,
+                                "point": -13.5
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "sugarhouse",
+                "title": "SugarHouse",
+                "last_update": "2022-03-28T04:11:29Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.08
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 9
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.89,
+                                "point": -13.5
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "barstool",
+                "title": "Barstool Sportsbook",
+                "last_update": "2022-03-28T04:11:37Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.08
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 9
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.89,
+                                "point": -13.5
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "twinspires",
+                "title": "TwinSpires",
+                "last_update": "2022-03-28T04:11:58Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.08
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 8.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.89,
+                                "point": -13.5
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2022-03-28T04:10:09Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.08
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 9
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.89,
+                                "point": -13.5
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "gtbets",
+                "title": "GTbets",
+                "last_update": "2022-03-28T04:12:38Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.11
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 6.6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.92,
+                                "point": -13
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.92,
+                                "point": 13
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.92,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "mybookieag",
+                "title": "MyBookie.ag",
+                "last_update": "2022-03-28T04:06:51Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.11
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 7.1
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Miami Heat",
+                                "price": 1.91,
+                                "point": -13
+                            },
+                            {
+                                "name": "Sacramento Kings",
+                                "price": 1.91,
+                                "point": 13
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 219.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 219.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "9db1ca4b20fade57d8ecde60166b7294",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2022-03-29T00:00:00Z",
+        "home_team": "Houston Rockets",
+        "away_team": "San Antonio Spurs",
+        "bookmakers": [
+            {
+                "key": "unibet",
+                "title": "Unibet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.15
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.38
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "sugarhouse",
+                "title": "SugarHouse",
+                "last_update": "2022-03-28T04:11:29Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.15
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.38
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "barstool",
+                "title": "Barstool Sportsbook",
+                "last_update": "2022-03-28T04:11:37Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.15
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.38
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "twinspires",
+                "title": "TwinSpires",
+                "last_update": "2022-03-28T04:11:58Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.15
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.38
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "lowvig",
+                "title": "LowVig.ag",
+                "last_update": "2022-03-28T04:13:05Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 2,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2022-03-28T04:12:32Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.2
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.36
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "gtbets",
+                "title": "GTbets",
+                "last_update": "2022-03-28T04:12:38Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.25
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.37
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.92,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.92,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.92,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2022-03-28T04:12:15Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.2
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.43
+                            }
+                        ]
+                    },
+                    {
+                        "key": "h2h_lay",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.3
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.46
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2022-03-28T04:06:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.2
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.37
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2022-03-28T04:10:09Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.15
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.38
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betus",
+                "title": "BetUS",
+                "last_update": "2022-03-28T04:10:26Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.15
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.38
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2022-03-28T04:10:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.2
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.37
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.89,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betonlineag",
+                "title": "BetOnline.ag",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 2,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.83,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "foxbet",
+                "title": "FOX Bet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.36
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.85,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 2,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.85,
+                                "point": 237
+                            },
+                            {
+                                "name": "Under",
+                                "price": 2,
+                                "point": 237
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "wynnbet",
+                "title": "WynnBET",
+                "last_update": "2022-03-28T04:11:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.4
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 238
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 238
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2022-03-28T04:11:11Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.2
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.37
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pointsbetus",
+                "title": "PointsBet (US)",
+                "last_update": "2022-03-28T04:11:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.2
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.36
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.87,
+                                "point": 237
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 237
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "mybookieag",
+                "title": "MyBookie.ag",
+                "last_update": "2022-03-28T04:06:51Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 3.2
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.37
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Houston Rockets",
+                                "price": 1.91,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "San Antonio Spurs",
+                                "price": 1.91,
+                                "point": -6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 237.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 237.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "cd820924cd5a8966f148dcdda9f11cd9",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2022-03-29T00:10:00Z",
+        "home_team": "Memphis Grizzlies",
+        "away_team": "Golden State Warriors",
+        "bookmakers": [
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.1
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.17
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betonlineag",
+                "title": "BetOnline.ag",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.9,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.9,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 222
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 222
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "lowvig",
+                "title": "LowVig.ag",
+                "last_update": "2022-03-28T04:13:05Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.95,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.95,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 222
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 222
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2022-03-28T04:11:11Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.75
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.14
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "gtbets",
+                "title": "GTbets",
+                "last_update": "2022-03-28T04:12:38Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.17
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.92,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.92,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.92,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2022-03-28T04:10:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.2
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.18
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 222
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 222
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2022-03-28T04:06:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 4.95
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.18
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "wynnbet",
+                "title": "WynnBET",
+                "last_update": "2022-03-28T04:11:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.19
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 222
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 222
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2022-03-28T04:12:32Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.18
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betus",
+                "title": "BetUS",
+                "last_update": "2022-03-28T04:10:26Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 222
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 222
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pointsbetus",
+                "title": "PointsBet (US)",
+                "last_update": "2022-03-28T04:11:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.25
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.17
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2022-03-28T04:12:15Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.3
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.19
+                            }
+                        ]
+                    },
+                    {
+                        "key": "h2h_lay",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 6.4
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.24
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "unibet",
+                "title": "Unibet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.25
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.17
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "sugarhouse",
+                "title": "SugarHouse",
+                "last_update": "2022-03-28T04:11:29Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.25
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.17
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.88,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "barstool",
+                "title": "Barstool Sportsbook",
+                "last_update": "2022-03-28T04:11:37Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.25
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.17
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.88,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "twinspires",
+                "title": "TwinSpires",
+                "last_update": "2022-03-28T04:11:58Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.25
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.17
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.88,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2022-03-28T04:10:09Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.25
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.17
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.88,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "mybookieag",
+                "title": "MyBookie.ag",
+                "last_update": "2022-03-28T04:06:51Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 5.1
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.18
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Golden State Warriors",
+                                "price": 1.91,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Memphis Grizzlies",
+                                "price": 1.91,
+                                "point": -10.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 222.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 222.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "d02573a54c08d7561dd61867127ab048",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2022-03-29T02:10:00Z",
+        "home_team": "Portland Trail Blazers",
+        "away_team": "Oklahoma City Thunder",
+        "bookmakers": [
+            {
+                "key": "lowvig",
+                "title": "LowVig.ag",
+                "last_update": "2022-03-28T04:13:05Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.95,
+                                "point": -2
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.95,
+                                "point": 2
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 220.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 220.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.71
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.2
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.91,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.91,
+                                "point": 2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 221.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 221.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "gtbets",
+                "title": "GTbets",
+                "last_update": "2022-03-28T04:12:38Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.69
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.25
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.92,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.92,
+                                "point": 2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.92,
+                                "point": 221
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.92,
+                                "point": 221
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "wynnbet",
+                "title": "WynnBET",
+                "last_update": "2022-03-28T04:11:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.74
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.12
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.91,
+                                "point": -2
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.91,
+                                "point": 2
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 220
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 220
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2022-03-28T04:10:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.7
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.2
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.91,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.91,
+                                "point": 2.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pointsbetus",
+                "title": "PointsBet (US)",
+                "last_update": "2022-03-28T04:11:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.69
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.25
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.91,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.91,
+                                "point": 2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 221.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 221.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2022-03-28T04:11:11Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.69
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.25
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.91,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.91,
+                                "point": 2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 221
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 221
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2022-03-28T04:06:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.69
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.25
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.91,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.91,
+                                "point": 2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 221.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 221.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betonlineag",
+                "title": "BetOnline.ag",
+                "last_update": "2022-03-28T04:10:50Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.9,
+                                "point": -2
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.9,
+                                "point": 2
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 220.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 220.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2022-03-28T04:12:32Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.71
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.15
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.91,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.91,
+                                "point": 2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 221.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 221.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betus",
+                "title": "BetUS",
+                "last_update": "2022-03-28T04:10:26Z",
+                "markets": [
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.91,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.91,
+                                "point": 2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 221
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 221
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2022-03-28T04:12:15Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.74
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.2
+                            }
+                        ]
+                    },
+                    {
+                        "key": "h2h_lay",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.84
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.36
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "foxbet",
+                "title": "FOX Bet",
+                "last_update": "2022-03-28T04:10:33Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.7
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.1
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.85,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2,
+                                "point": 2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 221.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 221.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "mybookieag",
+                "title": "MyBookie.ag",
+                "last_update": "2022-03-28T04:06:51Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.69
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 2.25
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "outcomes": [
+                            {
+                                "name": "Oklahoma City Thunder",
+                                "price": 1.91,
+                                "point": -2.5
+                            },
+                            {
+                                "name": "Portland Trail Blazers",
+                                "price": 1.91,
+                                "point": 2.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 221
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 221
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+])
+        const oddsDataList2 = ref([])
+
+        onMounted(() => {
+            console.log('onMounted')
+            // getList()
+            console.log(oddsDataList.value)
+        })
         function getList() {
             Api('/basketball_nba/odds', {
                 params: {
-                    markets: 'h2h,spreads,totals',
+                    markets: 'h2h,spreads,totals', // 獨贏 讓分 大小
                     oddsFormat: 'decimal',
                 },
             })
                 .then((res) => {
                     console.log(res)
+                    oddsDataList.value = res.data
                 })
                 .catch((err) => {
                     console.error(err)
@@ -10677,14 +7921,10 @@ export default {
                 default:
             }
         }
+        function getOddsLine(){
 
-        onMounted(() => {
-            console.log('onMounted')
-            console.log(oddsDataList.value)
-        })
-        watch(selectValue, (value, preVal) => {
-            //   console.log(value);
-            //   console.log(preVal);
+        }
+        watch(selectValue, () => {
             betRateConvert()
         })
         return {
