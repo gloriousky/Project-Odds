@@ -5,7 +5,7 @@
                 NBA Odds & Betting Lines
             </h1>
             <div class="flex justify-center">
-                <div class="text-center mr-3">
+                <!-- <div class="text-center mr-3">
                     <span class="mr-3">Sport:</span>
                     <select
                         class="border-2 rounded-md cursor-pointer p-2"
@@ -14,7 +14,7 @@
                         <option value="basketball_nba">NBA</option>
                         <option value="baseball_mlb">MLB</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="text-center">
                     <span class="mr-3">Odds:</span>
                     <select
@@ -33,7 +33,7 @@
                     <tr>
                         <th>Time</th>
                         <th>Game</th>
-                        <th class="w-1/6"></th>
+                        <!-- <th class="w-1/6"></th> -->
                         <th class="hidden lg:table-cell w-14">Open</th>
                     </tr>
                 </thead>
@@ -93,61 +93,68 @@
                                     </span>
                                 </div>
                             </td>
-                            <td class="px-2 mr-4">
+                            <!-- <td class="px-2 mr-4">
                                 <div @click="getOddsLine()" class="primary-btn">
                                     Line
                                 </div>
-                            </td>
+                            </td> -->
                             <td
                                 class="
-                                    hidden
-                                    lg:block
+                                    hidden                                    
+                                    lg:table-cell
                                     text-sm text-gray-600
-                                    flex flex-col
-                                    items-center
                                 "
                             >
-                                <div
-                                    v-if="sportSelectValue === 'basketball_nba'"
-                                >
-                                    {{
-                                        'O' + item.bookmakers[3]['markets'][2]
-                                            ? item.bookmakers[3]['markets'][2][
-                                                  'outcomes'
-                                              ][0]['point']
-                                            : ''
-                                    }}
-                                </div>
-                                <div
-                                    v-else-if="
-                                        sportSelectValue === 'baseball_mlb'
-                                    "
-                                >
-                                    {{
-                                        item.bookmakers[3]['markets'][0][
-                                            'outcomes'
-                                        ][0]['price'].toFixed(2)
-                                    }}
-                                </div>
-                                <div
-                                    v-if="sportSelectValue === 'basketball_nba'"
-                                >
-                                    {{
-                                        item.bookmakers[3]['markets'][1][
-                                            'outcomes'
-                                        ][1]['point'].toFixed(1)
-                                    }}
-                                </div>
-                                <div
-                                    v-else-if="
-                                        sportSelectValue === 'baseball_mlb'
-                                    "
-                                >
-                                    {{
-                                        item.bookmakers[3]['markets'][0][
-                                            'outcomes'
-                                        ][1]['price'].toFixed(2)
-                                    }}
+                                <div class="flex flex-col items-center">
+                                    <div class="mb-3"
+                                        v-if="
+                                            sportSelectValue ===
+                                            'basketball_nba'
+                                        "
+                                    >
+                                        {{
+                                            'O' +
+                                            item.bookmakers[3]['markets'][2]
+                                                ? item.bookmakers[3][
+                                                      'markets'
+                                                  ][2]['outcomes'][0]['point']
+                                                : ''
+                                        }}
+                                    </div>
+                                    <div
+                                        v-else-if="
+                                            sportSelectValue === 'baseball_mlb'
+                                        "
+                                    >
+                                        {{
+                                            item.bookmakers[3]['markets'][0][
+                                                'outcomes'
+                                            ][0]['price'].toFixed(2)
+                                        }}
+                                    </div>
+                                    <div
+                                        v-if="
+                                            sportSelectValue ===
+                                            'basketball_nba'
+                                        "
+                                    >
+                                        {{
+                                            item.bookmakers[3]['markets'][1][
+                                                'outcomes'
+                                            ][1]['point'].toFixed(1)
+                                        }}
+                                    </div>
+                                    <div
+                                        v-else-if="
+                                            sportSelectValue === 'baseball_mlb'
+                                        "
+                                    >
+                                        {{
+                                            item.bookmakers[3]['markets'][0][
+                                                'outcomes'
+                                            ][1]['price'].toFixed(2)
+                                        }}
+                                    </div>
                                 </div>
                             </td>
                         </tr>
@@ -155,7 +162,10 @@
                 </tbody>
             </table>
 
-            <table class="oddsTable" v-if="sportSelectValue === 'basketball_nba'">
+            <table
+                class="oddsTable"
+                v-if="sportSelectValue === 'basketball_nba'"
+            >
                 <thead class="h-10 bg-stone-200 border-b">
                     <tr>
                         <th>
@@ -469,7 +479,10 @@
                     </template>
                 </tbody>
             </table>
-            <table class="oddsTable" v-if="sportSelectValue === 'baseball_mlb'">
+            <table
+                class="oddsTable"
+                v-else-if="sportSelectValue === 'baseball_mlb'"
+            >
                 <thead class="h-10 bg-stone-200 border-b">
                     <tr>
                         <th>
@@ -587,7 +600,13 @@
                                     </div>
                                 </td>
                                 <td v-else-if="list.title === 'FanDuel'">
-                                    <div class="flex flex-col justify-center items-center">
+                                    <div
+                                        class="
+                                            flex flex-col
+                                            justify-center
+                                            items-center
+                                        "
+                                    >
                                         <span class="mr-2">
                                             {{
                                                 list.markets[0]
@@ -801,9 +820,9 @@ import { ref, watch, onMounted, nextTick } from 'vue'
 export default {
     setup() {
         const ImgUrl = ref('.svg')
-        const sportImgUrl = ref('MLB')
+        const sportImgUrl = ref('NBA')
         const showModal = ref(false)
-        const sportSelectValue = ref('baseball_mlb')
+        const sportSelectValue = ref('basketball_nba')
         const marketSelectValue = ref('h2h,spreads,totals')
         const betRateSelectValue = ref('Decimal')
         const oddsDataList = ref([])
@@ -878,7 +897,7 @@ export default {
 </script>
 <style lang="postcss">
 .wrapper {
-    max-width: 1200px;
+    max-width: 1400px;
     @apply mt-12 mx-auto;
 }
 .primary-btn {

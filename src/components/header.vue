@@ -19,7 +19,6 @@ export default {
     const navBarList = ref([
         { name: "Home", url: "./" },
         { name: "Odds", url: "./odds" },
-        { name: "News", url: "./news" },
       ])
     return {
       navBarList
