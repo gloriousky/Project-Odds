@@ -59,7 +59,6 @@
 
         <div class="text-center my-5">
             <h1 class="text-4xl">Upcoming Games</h1>
-            <p class="text-xl my-2">{{ tomorrowValue }}</p>
         </div>
         <div class="flex flex-wrap">
             <!-- 明日賽程 -->
@@ -124,17 +123,12 @@ export default {
         const ImgUrl = ref('.svg')
         const sportImgUrl = ref('NBA')
         const sportSelectValue = ref('basketball_nba')
-        const currentDay = ref(
-            Utils.dateFormat(new Date().getTime(), '-', false)
-        )
-        const tomorrowValue = ref(
-            Utils.dateFormat((new Date().getTime()+86400), '-', false)
-        )
+        const currentDay = ref('')
         const gamesScoreList = ref([])
         const upcomingGamesList = ref([])
         onMounted(() => {
             // console.log(gamesScoreList.value)
-            // console.log(currentDay.value)
+            console.log(new Date().getTime())
             getScoreInfo()
         })
         watch(sportSelectValue, () => {
@@ -161,6 +155,11 @@ export default {
                     upcomingGamesList.value = res.data.filter((value) => {
                         return value.completed === false
                     })
+                    currentDay.value = Utils.dateFormat(
+                        new Date(gamesScoreList.value[0].last_update).getTime(),
+                        '-',
+                        false
+                    )
                     console.log(gamesScoreList.value)
                 })
                 .catch((err) => {
@@ -171,7 +170,6 @@ export default {
             ImgUrl,
             sportImgUrl,
             currentDay,
-            tomorrowValue,
             gamesScoreList,
             upcomingGamesList,
             sportSelectValue,
