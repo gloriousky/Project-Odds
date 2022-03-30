@@ -1,38 +1,60 @@
 <template>
     <div class="wrapper text-left">
+        <div class="text-center mr-3">
+            <span class="mr-3">Sport:</span>
+            <select
+                class="border-2 rounded-md cursor-pointer p-2"
+                v-model="this.sportSelectValue"
+            >
+                <option value="basketball_nba">NBA</option>
+                <option value="baseball_mlb">MLB</option>
+            </select>
+        </div>
         <div class="flex flex-wrap">
+            <!-- 比賽結果 -->
             <template v-for="item in gamesScoreList" :key="item.id">
-                <!-- 比賽結果 -->
                 <div class="w-full lg:w-1/2 border">
-                    <div class="flex justify-around w-full p-2 m-2">
-                        <div class="flex flex-col items-center md:w-1/3">
+                    <div class="flex justify-around w-full p-2">
+                        <div class="flex flex-col items-center w-1/3">
                             <span class="text-center">
                                 {{ item.away_team }}
                             </span>
                             <img
                                 class="w-12 h-12 md:w-16 md:h-16"
-                                :src="/NBA/ + item.away_team + this.ImgUrl"
+                                :src="
+                                    '/' +
+                                    this.sportImgUrl +
+                                    '/' +
+                                    item.away_team +
+                                    this.ImgUrl
+                                "
                                 alt=""
                             />
                         </div>
-                        <div class="flex justify-center items-center md:w-1/3">
+                        <div class="flex justify-center items-center w-1/3">
                             <span class="text-2xl font-extrabold">
-                                {{item.scores ? item.scores[1]['score'] : ''}}
+                                {{ item.scores ? item.scores[1]['score'] : '' }}
                             </span>
                             <span class="mx-3 text-emerald-600 font-bold">
-                                {{item.scores ? 'Final' : ''}}
+                                {{ item.scores ? 'Final' : '' }}
                             </span>
                             <span class="text-2xl font-extrabold">
-                                {{item.scores ? item.scores[0]['score'] : ''}}
+                                {{ item.scores ? item.scores[0]['score'] : '' }}
                             </span>
                         </div>
-                        <div class="flex flex-col items-center md:w-1/3">
+                        <div class="flex flex-col items-center w-1/3">
                             <span class="text-center">
                                 {{ item.home_team }}
                             </span>
                             <img
                                 class="w-12 h-12 md:w-16 md:h-16"
-                                :src="/NBA/ + item.home_team + this.ImgUrl"
+                                :src="
+                                    '/' +
+                                    this.sportImgUrl +
+                                    '/' +
+                                    item.home_team +
+                                    this.ImgUrl
+                                "
                                 alt=""
                             />
                         </div>
@@ -43,11 +65,17 @@
     </div>
 </template>
 <script>
+import Utils from '../utility/util.js'
 import Api from '../api/request.js'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 export default {
     setup() {
         const ImgUrl = ref('.svg')
+        const sportImgUrl = ref('NBA')
+        const sportSelectValue = ref('basketball_nba')
+        const currentDay = ref(
+            Utils.dateFormat(new Date().getTime(), '-', false)
+        )
         const gamesScoreList = ref([
             {
                 id: '98671efce3a818cc1addd9d2e83b2d23',
@@ -292,13 +320,20 @@ export default {
         const upcomingGamesList = ref([])
         onMounted(() => {
             console.log(gamesScoreList.value)
+            console.log(currentDay.value)
             // getScoreInfo()
         })
-        // watch(gamesScoreList,(value)=>{
-        //     console.log(value)
-        // })
+        watch(sportSelectValue, () => {
+            switch (sportSelectValue.value) {
+                case 'basketball_nba':
+                    sportImgUrl.value = 'NBA'
+                case 'baseball_mlb':
+                    sportImgUrl.value = 'MLB'
+            }
+            getList()
+        })
         function getScoreInfo() {
-            Api('/basketball_nba/scores', {
+            Api(`/${sportSelectValue.value}/scores`, {
                 params: {
                     daysFrom: '1',
                 },
@@ -320,6 +355,8 @@ export default {
         }
         return {
             ImgUrl,
+            sportImgUrl,
+            currentDay,
             gamesScoreList,
             upcomingGamesList,
             getScoreInfo,
@@ -329,7 +366,7 @@ export default {
 </script>
 <style lang="postcss">
 .wrapper {
-    width: 980px;
+    max-width: 980px;
     @apply mt-12 mx-auto;
 }
 </style>
