@@ -19,7 +19,7 @@
                             <span class="text-2xl font-extrabold">
                                 {{item.scores ? item.scores[1]['score'] : ''}}
                             </span>
-                            <span class="mx-3">
+                            <span class="mx-3 text-emerald-600 font-bold">
                                 {{item.scores ? 'Final' : ''}}
                             </span>
                             <span class="text-2xl font-extrabold">
@@ -44,11 +44,11 @@
 </template>
 <script>
 import Api from '../api/request.js'
-import { ref, watch, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 export default {
     setup() {
         const ImgUrl = ref('.svg')
-        const scoreList = ref([
+        const gamesScoreList = ref([
             {
                 id: '98671efce3a818cc1addd9d2e83b2d23',
                 sport_key: 'basketball_nba',
@@ -289,11 +289,12 @@ export default {
                 last_update: null,
             },
         ])
+        const upcomingGamesList = ref([])
         onMounted(() => {
             console.log(scoreList.value)
             // getScoreInfo()
         })
-        // watch(scoreList,(value)=>{
+        // watch(gamesScoreList,(value)=>{
         //     console.log(value)
         // })
         function getScoreInfo() {
@@ -305,10 +306,13 @@ export default {
                 .then((res) => {
                     console.log(res)
                     // 篩選已完成比賽
-                    scoreList.value = res.data.filter((value) => {
-                        return value.completed == true
+                    gamesScoreList.value = res.data.filter((value) => {
+                        return value.completed === true
                     })
-                    console.log(scoreList.value)
+                    upcomingGamesList.value = res.data.filter((value) => {
+                        return value.completed === false
+                    })
+                    console.log(gamesScoreList.value)
                 })
                 .catch((err) => {
                     console.error(err)
@@ -316,7 +320,8 @@ export default {
         }
         return {
             ImgUrl,
-            scoreList,
+            gamesScoreList,
+            upcomingGamesList,
             getScoreInfo,
         }
     },
