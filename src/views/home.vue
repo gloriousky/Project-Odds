@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper text-left">
         <div class="flex flex-wrap">
-            <template v-for="item in scoreList" :key="item.id">
+            <template v-for="item in gamesScoreList" :key="item.id">
                 <!-- 比賽結果 -->
                 <div class="w-1/2 border">
                     <div class="flex justify-around">
