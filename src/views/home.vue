@@ -291,7 +291,7 @@ export default {
         ])
         const upcomingGamesList = ref([])
         onMounted(() => {
-            console.log(scoreList.value)
+            console.log(gamesScoreList.value)
             // getScoreInfo()
         })
         // watch(gamesScoreList,(value)=>{
