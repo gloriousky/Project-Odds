@@ -127,8 +127,6 @@ export default {
         const gamesScoreList = ref([])
         const upcomingGamesList = ref([])
         onMounted(() => {
-            // console.log(gamesScoreList.value)
-            console.log(new Date().getTime())
             getScoreInfo()
         })
         watch(sportSelectValue, () => {
@@ -147,7 +145,6 @@ export default {
                 },
             })
                 .then((res) => {
-                    console.log(res)
                     // 篩選已完成比賽
                     gamesScoreList.value = res.data.filter((value) => {
                         return value.completed === true
@@ -160,7 +157,7 @@ export default {
                         '-',
                         false
                     )
-                    console.log(gamesScoreList.value)
+                    // console.log(gamesScoreList.value)
                 })
                 .catch((err) => {
                     console.error(err)

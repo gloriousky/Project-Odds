@@ -829,7 +829,6 @@ export default {
 
         onMounted(() => {
             getList()
-            console.log(oddsDataList.value)
         })
         async function getList() {
             Api(`/${sportSelectValue.value}/odds`, {
@@ -839,7 +838,7 @@ export default {
                 },
             })
                 .then((res) => {
-                    console.log(res)
+                    // console.log(res)
                     oddsDataList.value = res.data
                     console.log(oddsDataList.value)
                 })
