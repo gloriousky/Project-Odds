@@ -3,19 +3,19 @@
         <div class="flex flex-wrap">
             <template v-for="item in gamesScoreList" :key="item.id">
                 <!-- 比賽結果 -->
-                <div class="w-1/2 border">
-                    <div class="flex justify-around">
-                        <div class="flex flex-col items-center w-1/3">
+                <div class="w-full lg:w-1/2 border">
+                    <div class="flex justify-around w-full p-2 m-2">
+                        <div class="flex flex-col items-center md:w-1/3">
                             <span class="text-center">
                                 {{ item.away_team }}
                             </span>
                             <img
-                                class="w-16 h-16"
+                                class="w-12 h-12 md:w-16 md:h-16"
                                 :src="/NBA/ + item.away_team + this.ImgUrl"
                                 alt=""
                             />
                         </div>
-                        <div class="flex items-center w-1/4">
+                        <div class="flex justify-center items-center md:w-1/3">
                             <span class="text-2xl font-extrabold">
                                 {{item.scores ? item.scores[1]['score'] : ''}}
                             </span>
@@ -26,12 +26,12 @@
                                 {{item.scores ? item.scores[0]['score'] : ''}}
                             </span>
                         </div>
-                        <div class="flex flex-col items-center w-1/3">
+                        <div class="flex flex-col items-center md:w-1/3">
                             <span class="text-center">
                                 {{ item.home_team }}
                             </span>
                             <img
-                                class="w-16 h-16"
+                                class="w-12 h-12 md:w-16 md:h-16"
                                 :src="/NBA/ + item.home_team + this.ImgUrl"
                                 alt=""
                             />

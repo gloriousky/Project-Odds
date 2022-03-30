@@ -1,5 +1,5 @@
 <template>
-    <div class="container w-full box-border">
+    <div class="w-full box-border mx-auto">
         <Header></Header>
         <router-view></router-view>
     </div>
