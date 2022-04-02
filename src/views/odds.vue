@@ -113,7 +113,7 @@
                                         "
                                     >
                                         {{
-                                            'O' +
+                                            
                                             item.bookmakers[3]['markets'][2]
                                                 ? item.bookmakers[3][
                                                       'markets'
