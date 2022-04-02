@@ -52,7 +52,7 @@
                                     <img
                                         class="w-6 h-6 mr-2"
                                         :src="
-                                            './' +
+                                            '/' +
                                             this.sportImgUrl +
                                             '/' +
                                             item.away_team +
@@ -74,7 +74,7 @@
                                     <img
                                         class="w-6 h-6 mr-2"
                                         :src="
-                                            './' +
+                                            '/' +
                                             this.sportImgUrl +
                                             '/' +
                                             item.home_team +
@@ -112,7 +112,8 @@
                                             'basketball_nba'
                                         "
                                     >
-                                        {{                                          
+                                        {{
+                                            'O' +
                                             item.bookmakers[3]['markets'][2]
                                                 ? item.bookmakers[3][
                                                       'markets'

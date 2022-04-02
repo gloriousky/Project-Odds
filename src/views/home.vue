@@ -16,7 +16,7 @@
                             <img
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
-                                    './' +
+                                    '/' +
                                     this.sportImgUrl +
                                     '/' +
                                     item.away_team +
@@ -43,7 +43,7 @@
                             <img
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
-                                    './' +
+                                    '/' +
                                     this.sportImgUrl +
                                     '/' +
                                     item.home_team +
@@ -72,7 +72,7 @@
                             <img
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
-                                    './' +
+                                    '/' +
                                     this.sportImgUrl +
                                     '/' +
                                     item.away_team +
@@ -99,7 +99,7 @@
                             <img
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
-                                    './' +
+                                    '/' +
                                     this.sportImgUrl +
                                     '/' +
                                     item.home_team +
