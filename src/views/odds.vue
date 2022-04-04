@@ -865,7 +865,6 @@ export default {
                 default:
             }
         }
-        // function getOddsLine() {}
         watch(betRateSelectValue, () => {
             betRateConvert()
         })
