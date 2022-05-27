@@ -2,7 +2,7 @@
     <div class="wrapper text-left">
         <div class="text-center mb-5">
             <h1 class="text-4xl">Game Results</h1>
-            <p class="text-xl my-2">{{ currentDay }}</p>
+            <p class="text-xl my-2">{{ data.currentDay }}</p>
         </div>
         <div class="flex flex-wrap">
             <!-- 比賽結果 -->
@@ -123,8 +123,8 @@ export default {
         const ImgUrl = ref('.svg')
         const sportImgUrl = ref('NBA')
         const sportSelectValue = ref('basketball_nba')
-        const currentDay = ref('')
         const data = reactive({
+            currentDay: '',
             gamesScoreList: [],
             upcomingGamesList: [],
         })
@@ -154,7 +154,7 @@ export default {
                     data.upcomingGamesList = res.data.filter((value) => {
                         return value.completed === false
                     })
-                    currentDay.value = Utils.dateFormat(
+                    data.currentDay = Utils.dateFormat(
                         new Date(data.gamesScoreList[0].last_update).getTime(),
                         '-',
                         false
@@ -169,7 +169,6 @@ export default {
             data,
             ImgUrl,
             sportImgUrl,
-            currentDay,
             sportSelectValue,
             getScoreInfo,
         }
