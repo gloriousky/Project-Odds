@@ -6,7 +6,7 @@
         </div>
         <div class="flex flex-wrap">
             <!-- 比賽結果 -->
-            <template v-for="item in gamesScoreList" :key="item.id">
+            <template v-for="item in data.gamesScoreList" :key="item.id">
                 <div class="w-full lg:w-1/2 border bg-cyan-100">
                     <div class="flex justify-around w-full p-2">
                         <div class="flex flex-col items-center w-1/3">
@@ -62,7 +62,7 @@
         </div>
         <div class="flex flex-wrap">
             <!-- 明日賽程 -->
-            <template v-for="item in upcomingGamesList" :key="item.id">
+            <template v-for="item in data.upcomingGamesList" :key="item.id">
                 <div class="w-full lg:w-1/2 border bg-cyan-100">
                     <div class="flex justify-around w-full p-2">
                         <div class="flex flex-col items-center w-1/3">
@@ -117,15 +117,17 @@
 <script>
 import Utils from '../utility/util.js'
 import Api from '../api/request.js'
-import { ref, onMounted, watch } from 'vue'
+import { ref, reactive, onMounted, watch } from 'vue'
 export default {
     setup() {
         const ImgUrl = ref('.svg')
         const sportImgUrl = ref('NBA')
         const sportSelectValue = ref('basketball_nba')
         const currentDay = ref('')
-        const gamesScoreList = ref([])
-        const upcomingGamesList = ref([])
+        const data = reactive({
+            gamesScoreList: [],
+            upcomingGamesList: [],
+        })
         onMounted(() => {
             getScoreInfo()
         })
@@ -146,14 +148,14 @@ export default {
             })
                 .then((res) => {
                     // 篩選已完成比賽
-                    gamesScoreList.value = res.data.filter((value) => {
+                    data.gamesScoreList = res.data.filter((value) => {
                         return value.completed === true
                     })
-                    upcomingGamesList.value = res.data.filter((value) => {
+                    data.upcomingGamesList = res.data.filter((value) => {
                         return value.completed === false
                     })
                     currentDay.value = Utils.dateFormat(
-                        new Date(gamesScoreList.value[0].last_update).getTime(),
+                        new Date(data.gamesScoreList[0].last_update).getTime(),
                         '-',
                         false
                     )
@@ -164,11 +166,10 @@ export default {
                 })
         }
         return {
+            data,
             ImgUrl,
             sportImgUrl,
             currentDay,
-            gamesScoreList,
-            upcomingGamesList,
             sportSelectValue,
             getScoreInfo,
         }
