@@ -2,7 +2,7 @@
     <div class="wrapper text-left">
         <div class="text-center mb-5">
             <h1 class="text-4xl">Game Results</h1>
-            <p class="text-xl my-2">{{ currentDay }}</p>
+            <p class="text-xl my-2">{{ data.currentDay }}</p>
         </div>
         <div class="flex flex-wrap">
             <!-- 比賽結果 -->
@@ -17,7 +17,7 @@
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
                                     '/' +
-                                    this.sportImgUrl +
+                                    data.sportImgUrl +
                                     '/' +
                                     item.away_team +
                                     this.ImgUrl
@@ -44,7 +44,7 @@
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
                                     '/' +
-                                    this.sportImgUrl +
+                                    data.sportImgUrl +
                                     '/' +
                                     item.home_team +
                                     this.ImgUrl
@@ -73,7 +73,7 @@
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
                                     '/' +
-                                    this.sportImgUrl +
+                                    data.sportImgUrl +
                                     '/' +
                                     item.away_team +
                                     this.ImgUrl
@@ -100,7 +100,7 @@
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
                                     '/' +
-                                    this.sportImgUrl +
+                                    data.sportImgUrl +
                                     '/' +
                                     item.home_team +
                                     this.ImgUrl
@@ -121,27 +121,27 @@ import { ref, reactive, onMounted, watch } from 'vue'
 export default {
     setup() {
         const ImgUrl = ref('.svg')
-        const sportImgUrl = ref('NBA')
-        const sportSelectValue = ref('basketball_nba')
-        const currentDay = ref('')
         const data = reactive({
+            sportImgUrl: 'NBA',
+            sportSelectValue: 'basketball_nba',
+            currentDay: '',
             gamesScoreList: [],
             upcomingGamesList: [],
         })
         onMounted(() => {
             getScoreInfo()
         })
-        watch(sportSelectValue, () => {
-            switch (sportSelectValue.value) {
+        watch(data.sportSelectValue, () => {
+            switch (data.sportSelectValue) {
                 case 'basketball_nba':
-                    sportImgUrl.value = 'NBA'
+                    data.sportImgUrl = 'NBA'
                 case 'baseball_mlb':
-                    sportImgUrl.value = 'MLB'
+                    data.sportImgUrl = 'MLB'
             }
             getList()
         })
         function getScoreInfo() {
-            Api(`/${sportSelectValue.value}/scores`, {
+            Api(`/${data.sportSelectValue}/scores`, {
                 params: {
                     daysFrom: '1',
                 },
@@ -154,7 +154,7 @@ export default {
                     data.upcomingGamesList = res.data.filter((value) => {
                         return value.completed === false
                     })
-                    currentDay.value = Utils.dateFormat(
+                    data.currentDay = Utils.dateFormat(
                         new Date(data.gamesScoreList[0].last_update).getTime(),
                         '-',
                         false
@@ -168,9 +168,6 @@ export default {
         return {
             data,
             ImgUrl,
-            sportImgUrl,
-            currentDay,
-            sportSelectValue,
             getScoreInfo,
         }
     },
