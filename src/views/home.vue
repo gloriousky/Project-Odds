@@ -17,7 +17,7 @@
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
                                     '/' +
-                                    this.sportImgUrl +
+                                    data.sportImgUrl +
                                     '/' +
                                     item.away_team +
                                     this.ImgUrl
@@ -44,7 +44,7 @@
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
                                     '/' +
-                                    this.sportImgUrl +
+                                    data.sportImgUrl +
                                     '/' +
                                     item.home_team +
                                     this.ImgUrl
@@ -73,7 +73,7 @@
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
                                     '/' +
-                                    this.sportImgUrl +
+                                    data.sportImgUrl +
                                     '/' +
                                     item.away_team +
                                     this.ImgUrl
@@ -100,7 +100,7 @@
                                 class="w-12 h-12 md:w-16 md:h-16"
                                 :src="
                                     '/' +
-                                    this.sportImgUrl +
+                                    data.sportImgUrl +
                                     '/' +
                                     item.home_team +
                                     this.ImgUrl
@@ -121,9 +121,9 @@ import { ref, reactive, onMounted, watch } from 'vue'
 export default {
     setup() {
         const ImgUrl = ref('.svg')
-        const sportImgUrl = ref('NBA')
-        const sportSelectValue = ref('basketball_nba')
         const data = reactive({
+            sportImgUrl: 'NBA',
+            sportSelectValue: 'basketball_nba',
             currentDay: '',
             gamesScoreList: [],
             upcomingGamesList: [],
@@ -131,17 +131,17 @@ export default {
         onMounted(() => {
             getScoreInfo()
         })
-        watch(sportSelectValue, () => {
-            switch (sportSelectValue.value) {
+        watch(data.sportSelectValue, () => {
+            switch (data.sportSelectValue) {
                 case 'basketball_nba':
-                    sportImgUrl.value = 'NBA'
+                    data.sportImgUrl = 'NBA'
                 case 'baseball_mlb':
-                    sportImgUrl.value = 'MLB'
+                    data.sportImgUrl = 'MLB'
             }
             getList()
         })
         function getScoreInfo() {
-            Api(`/${sportSelectValue.value}/scores`, {
+            Api(`/${data.sportSelectValue}/scores`, {
                 params: {
                     daysFrom: '1',
                 },
@@ -168,8 +168,6 @@ export default {
         return {
             data,
             ImgUrl,
-            sportImgUrl,
-            sportSelectValue,
             getScoreInfo,
         }
     },
