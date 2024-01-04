@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "@element-plus/nuxt",
+    "nuxt-vitest",
     "nuxt-icon",
     "nuxt-swiper",
   ],
